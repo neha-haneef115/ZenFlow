@@ -1,16 +1,14 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="zenflow",  
+    name="zenflow",
     version="0.1.0",
     packages=find_packages(where="src"),
     package_dir={"": "src"},
-    install_requires=[
-        "PyQt5>=5.15.0"
-    ],
+    install_requires=["PyQt5>=5.15.0"],
     entry_points={
         "console_scripts": [
-            "zenflowapp = main:main", 
+            "zenflowapp = main:main",
         ],
     },
     include_package_data=True,
