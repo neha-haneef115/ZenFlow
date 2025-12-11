@@ -1,0 +1,59 @@
+{
+  "selectedCategories": [
+    "Coding"
+  ],
+  "sessionRules": {
+    "allowedApps": [
+      "GitKraken",
+      "PyCharm",
+      "Terminal",
+      "VS Code"
+    ],
+    "blockedApps": [
+      "Facebook",
+      "Instagram",
+      "Netflix",
+      "Reddit",
+      "TikTok",
+      "Twitter",
+      "YouTube"
+    ]
+  },
+  "activeSessionData": {
+    "startTime": "2025-12-11T07:59:04.608438",
+    "distractionAttempts": 1
+  },
+  "sessionHistory": [
+    {
+      "endedAt": "2025-12-11T07:57:08.534539",
+      "elapsedSeconds": 55,
+      "selectedCategories": [
+        "Coding"
+      ],
+      "sessionRules": {
+        "allowedApps": [
+          "GitKraken",
+          "PyCharm",
+          "Terminal",
+          "VS Code"
+        ],
+        "blockedApps": [
+          "Facebook",
+          "Instagram",
+          "Netflix",
+          "Reddit",
+          "TikTok",
+          "Twitter",
+          "YouTube"
+        ]
+      },
+      "distractionAttempts": 0
+    }
+  ],
+  "userPreferences": {
+    "defaultSessionMinutes": 50,
+    "postureTips": true,
+    "eyeStrainReminders": true,
+    "presets": {}
+  }
+}
