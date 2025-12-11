@@ -1,0 +1,2 @@
+[console_scripts]
+zenflowapp = src.main:main

@@ -3,14 +3,15 @@ from setuptools import setup, find_packages
 setup(
     name="zenflowapp",
     version="0.1.0",
-    packages=find_packages(where="src"),
-    package_dir={"": "src"},
+    # Install the "src" package (which contains main.py, theme.py, etc.)
+    # so that imports like "src.main" work in the console script.
+    packages=find_packages(),
     install_requires=["PyQt5>=5.15.0"],
     entry_points={
-    "console_scripts": [
-        "zenflowapp = src.main:main",
-    ],
-},
+        "console_scripts": [
+            "zenflowapp = src.main:main",
+        ],
+    },
 
     include_package_data=True,
     author="Neha Haneef",
