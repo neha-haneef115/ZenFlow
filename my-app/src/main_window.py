@@ -21,6 +21,15 @@ import sys
 import json
 from datetime import datetime
 
+# Desktop app detection imports
+from queue import Queue, Empty
+import threading
+import time
+
+import psutil
+import win32gui
+import win32process
+
 
 DATA_FILE = os.path.join(os.path.dirname(__file__), "zenflow_data.json")
 
@@ -241,6 +250,7 @@ class AppSetupScreen(QWidget):
 
         title = QLabel("Your focus setup")
         title.setStyleSheet("font-size: 20px;font-weight:600;color:#0f172a;")
+
         subtitle = QLabel("Choose which apps stay allowed")
         subtitle.setStyleSheet("color:#64748b;font-size:13px;")
 
@@ -457,8 +467,14 @@ class BlockedOverlayScreen(QWidget):
         self._setup_ui()
 
     def _setup_ui(self):
-        self.setWindowFlags(Qt.Dialog | Qt.FramelessWindowHint)
-        self.setAttribute(Qt.WA_StyledBackground, True)
+        # Full-screen, always-on-top, frameless overlay
+        self.setWindowFlags(
+            Qt.FramelessWindowHint
+            | Qt.WindowStaysOnTopHint
+            | Qt.Tool
+            | Qt.WindowSystemMenuHint
+        )
+        self.setAttribute(Qt.WA_TranslucentBackground, True)
         self.setStyleSheet("background-color: rgba(15,23,42,0.85);")
 
         layout = QVBoxLayout(self)
@@ -509,6 +525,11 @@ class BlockedOverlayScreen(QWidget):
         rules["allowedApps"] = sorted(allowed)
         state["sessionRules"] = rules
         save_state(state)
+
+        # Also mark this exe as allowed for the current session in MainWindow
+        if hasattr(self.parent, "allow_exe_for_session"):
+            self.parent.allow_exe_for_session(self.app_name)
+
         if hasattr(self.parent, "hide_blocked_overlay"):
             self.parent.hide_blocked_overlay()
 
@@ -756,6 +777,61 @@ class HomeScreen(QWidget):
             self.parent.show_settings_screen()
 
 
+class DesktopWatcher:
+    """Background thread that reports foreground window exe + title via a Queue."""
+
+    def __init__(self, event_queue: Queue, poll_interval: float = 0.2):
+        self.event_queue = event_queue
+        self.poll_interval = poll_interval
+        self._stop_event = threading.Event()
+        self._thread = None
+        self._last_state = None
+
+    def start(self):
+        if self._thread and self._thread.is_alive():
+            return
+        self._stop_event.clear()
+        self._thread = threading.Thread(target=self._run, daemon=True)
+        self._thread.start()
+
+    def stop(self):
+        self._stop_event.set()
+
+    def _run(self):
+        while not self._stop_event.is_set():
+            try:
+                exe, title = self._get_foreground_exe_and_title()
+                state = {"exe": (exe or "").lower(), "title": title or ""}
+                if state != self._last_state:
+                    self._last_state = state
+                    self.event_queue.put(
+                        {
+                            "type": "desktop_foreground",
+                            "exe": state["exe"],
+                            "title": state["title"],
+                        }
+                    )
+            except Exception:
+                # Never crash the watcher
+                pass
+            time.sleep(self.poll_interval)
+
+    @staticmethod
+    def _get_foreground_exe_and_title():
+        hwnd = win32gui.GetForegroundWindow()
+        if not hwnd:
+            return None, None
+        title = win32gui.GetWindowText(hwnd) or ""
+        try:
+            _, pid = win32process.GetWindowThreadProcessId(hwnd)
+            proc = psutil.Process(pid)
+            exe_path = proc.exe()
+            exe_name = exe_path.split("\\")[-1]
+            return exe_name, title
+        except Exception:
+            return None, title
+
+
 class MainWindow(QMainWindow):
     def __init__(self, config=None):
         super().__init__()
@@ -792,6 +868,22 @@ class MainWindow(QMainWindow):
         if os.path.exists(icon_path):
             self.setWindowIcon(QIcon(icon_path))
 
+        # --- Desktop app blocking session state ---
+        self.blocked_exes = {"chrome.exe", "msedge.exe", "firefox.exe"}
+        self.allowed_exes_session = set()
+
+        # Queue and watcher for desktop foreground windows
+        self.desktop_event_queue = Queue()
+        self.desktop_watcher = DesktopWatcher(self.desktop_event_queue, poll_interval=0.2)
+        self.desktop_watcher.start()
+
+        # Timer in main thread to process watcher events
+        self.desktop_event_timer = QTimer(self)
+        self.desktop_event_timer.timeout.connect(self._process_desktop_events)
+        self.desktop_event_timer.start(100)
+
+        self.current_blocked_exe = None
+
     def show_intent_screen(self):
         self.state = load_state()
         self.intent_screen = IntentScreen(self, self.state)
@@ -808,10 +900,9 @@ class MainWindow(QMainWindow):
         self._add_and_show(self.dashboard_screen)
 
     def show_blocked_overlay(self, app_name="Blocked app"):
+        # Create a full-screen overlay that sits above all windows
         self.blocked_overlay = BlockedOverlayScreen(self, app_name)
-        self.blocked_overlay.setParent(self)
-        self.blocked_overlay.resize(self.size())
-        self.blocked_overlay.show()
+        self.blocked_overlay.showFullScreen()
         if self.dashboard_screen is not None:
             self.dashboard_screen.record_distraction(app_name)
 
@@ -845,6 +936,53 @@ class MainWindow(QMainWindow):
         if self.stacked_widget.indexOf(widget) == -1:
             self.stacked_widget.addWidget(widget)
         self.stacked_widget.setCurrentWidget(widget)
+
+    def allow_exe_for_session(self, exe_name: str):
+        """Mark an exe as allowed for the remainder of this run."""
+        self.allowed_exes_session.add(exe_name.lower())
+
+    def _process_desktop_events(self):
+        """Handle foreground app changes from DesktopWatcher."""
+        latest = None
+        while True:
+            try:
+                ev = self.desktop_event_queue.get_nowait()
+                latest = ev
+            except Empty:
+                break
+
+        if not latest:
+            return
+
+        if latest.get("type") != "desktop_foreground":
+            return
+
+        exe = latest.get("exe", "").lower()
+        title = latest.get("title", "")
+
+        is_blocked = (
+            exe
+            and exe in self.blocked_exes
+            and exe not in self.allowed_exes_session
+        )
+
+        if is_blocked:
+            if self.current_blocked_exe == exe:
+                return
+            self.current_blocked_exe = exe
+            self.show_blocked_overlay(exe)
+        else:
+            if self.current_blocked_exe is not None:
+                self.current_blocked_exe = None
+                self.hide_blocked_overlay()
+
+    def closeEvent(self, event):
+        try:
+            if hasattr(self, "desktop_watcher") and self.desktop_watcher:
+                self.desktop_watcher.stop()
+        except Exception:
+            pass
+        super().closeEvent(event)
 
 
 if __name__ == "__main__":
