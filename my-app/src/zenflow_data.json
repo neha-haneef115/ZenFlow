@@ -5,96 +5,48 @@
   "sessionRules": {
     "allowedApps": [
       "Adobe XD",
-      "Chrome",
-      "Edge",
       "Figma",
-      "Firefox",
-      "Photoshop"
+      "Google Chrome",
+      "Microsoft Edge",
+      "Mozilla Firefox",
+      "Notion",
+      "Opera",
+      "Photoshop",
+      "Safari"
     ],
     "blockedApps": [
       "Facebook",
       "Instagram",
       "Netflix",
       "Reddit",
+      "Slack",
       "TikTok",
       "Twitter",
       "YouTube"
     ]
   },
   "activeSessionData": {
-    "startTime": "2025-12-11T12:59:34.227080",
+    "startTime": "Thu Dec 11 13:46:26 2025",
     "distractionAttempts": 0
   },
   "sessionHistory": [
     {
-      "endedAt": "2025-12-11T12:57:48.279773",
-      "elapsedSeconds": 1,
+      "startTime": "Thu Dec 11 13:40:31 2025",
+      "endedAt": "Thu Dec 11 13:40:34 2025",
+      "elapsedSeconds": 2,
       "selectedCategories": [
         "Designing"
       ],
       "sessionRules": {
         "allowedApps": [
           "Adobe XD",
-          "Chrome",
-          "Edge",
           "Figma",
-          "Firefox",
-          "Photoshop"
-        ],
-        "blockedApps": [
-          "Facebook",
-          "Instagram",
-          "Netflix",
-          "Reddit",
-          "TikTok",
-          "Twitter",
-          "YouTube"
-        ]
-      },
-      "distractionAttempts": 0
-    },
-    {
-      "endedAt": "2025-12-11T12:37:47.308242",
-      "elapsedSeconds": 3,
-      "selectedCategories": [
-        "Designing"
-      ],
-      "sessionRules": {
-        "allowedApps": [
-          "Adobe XD",
-          "Chrome",
-          "Edge",
-          "Figma",
-          "Firefox",
+          "Google Chrome",
+          "Microsoft Edge",
+          "Mozilla Firefox",
+          "Opera",
           "Photoshop",
-          "Twitter"
-        ],
-        "blockedApps": [
-          "Facebook",
-          "Instagram",
-          "Netflix",
-          "Reddit",
-          "Slack",
-          "TikTok",
-          "YouTube"
-        ]
-      },
-      "distractionAttempts": 0
-    },
-    {
-      "endedAt": "2025-12-11T12:37:07.077500",
-      "elapsedSeconds": 2,
-      "selectedCategories": [
-        "Designing"
-      ],
-      "sessionRules": {
-        "allowedApps": [
-          "Adobe XD",
-          "Chrome",
-          "Edge",
-          "Figma",
-          "Firefox",
-          "Photoshop"
+          "Safari"
         ],
         "blockedApps": [
           "Facebook",
@@ -109,71 +61,23 @@
       "distractionAttempts": 0
     },
     {
-      "endedAt": "2025-12-11T12:19:11.766397",
-      "elapsedSeconds": 2,
-      "selectedCategories": [
-        "Designing"
-      ],
-      "sessionRules": {
-        "allowedApps": [
-          "Adobe XD",
-          "Chrome",
-          "Edge",
-          "Figma",
-          "Firefox",
-          "Photoshop"
-        ],
-        "blockedApps": [
-          "Facebook",
-          "Instagram",
-          "Netflix",
-          "Reddit",
-          "TikTok",
-          "Twitter",
-          "YouTube"
-        ]
-      },
-      "distractionAttempts": 0
-    },
-    {
-      "endedAt": "2025-12-11T11:38:51.674004",
-      "elapsedSeconds": 1,
-      "selectedCategories": [
-        "Writing"
-      ],
-      "sessionRules": {
-        "allowedApps": [
-          "Chrome",
-          "Edge",
-          "Firefox",
-          "Notepad",
-          "Notion",
-          "Word"
-        ],
-        "blockedApps": [
-          "Facebook",
-          "Instagram",
-          "Netflix",
-          "Reddit",
-          "TikTok",
-          "Twitter",
-          "YouTube"
-        ]
-      },
-      "distractionAttempts": 0
-    },
-    {
-      "endedAt": "2025-12-11T11:10:16.487658",
+      "startTime": "Thu Dec 11 13:35:23 2025",
+      "endedAt": "Thu Dec 11 13:35:44 2025",
       "elapsedSeconds": 20,
       "selectedCategories": [
-        "Coding"
+        "Designing"
       ],
       "sessionRules": {
         "allowedApps": [
-          "GitKraken",
-          "PyCharm",
-          "Terminal",
-          "VS Code"
+          "Adobe XD",
+          "Figma",
+          "Google Chrome",
+          "Microsoft Edge",
+          "Mozilla Firefox",
+          "Opera",
+          "Photoshop",
+          "Safari",
+          "Slack"
         ],
         "blockedApps": [
           "Facebook",
@@ -188,193 +92,26 @@
       "distractionAttempts": 1
     },
     {
-      "endedAt": "2025-12-11T10:24:29.988838",
-      "elapsedSeconds": 14,
+      "startTime": "Thu Dec 11 13:30:09 2025",
+      "endedAt": "Thu Dec 11 13:30:30 2025",
+      "elapsedSeconds": 21,
       "selectedCategories": [
-        "Coding"
+        "Writing",
+        "Designing"
       ],
       "sessionRules": {
         "allowedApps": [
-          "GitKraken",
-          "PyCharm",
-          "Terminal",
-          "VS Code",
-          "chrome.exe"
-        ],
-        "blockedApps": [
-          "Facebook",
-          "Instagram",
-          "Netflix",
-          "Reddit",
-          "TikTok",
-          "Twitter",
-          "YouTube"
-        ]
-      },
-      "distractionAttempts": 4
-    },
-    {
-      "endedAt": "2025-12-11T10:17:08.448552",
-      "elapsedSeconds": 11,
-      "selectedCategories": [
-        "Coding"
-      ],
-      "sessionRules": {
-        "allowedApps": [
-          "GitKraken",
-          "PyCharm",
-          "Terminal",
-          "VS Code"
-        ],
-        "blockedApps": [
-          "Facebook",
-          "Instagram",
-          "Netflix",
-          "Reddit",
-          "TikTok",
-          "Twitter",
-          "YouTube"
-        ]
-      },
-      "distractionAttempts": 1
-    },
-    {
-      "endedAt": "2025-12-11T09:36:46.812206",
-      "elapsedSeconds": 48,
-      "selectedCategories": [
-        "Coding"
-      ],
-      "sessionRules": {
-        "allowedApps": [
-          "GitKraken",
-          "PyCharm",
-          "Terminal",
-          "VS Code"
-        ],
-        "blockedApps": [
-          "Facebook",
-          "Instagram",
-          "Netflix",
-          "Reddit",
-          "TikTok",
-          "Twitter",
-          "YouTube"
-        ]
-      },
-      "distractionAttempts": 5
-    },
-    {
-      "endedAt": "2025-12-11T09:07:27.919656",
-      "elapsedSeconds": 25,
-      "selectedCategories": [
-        "Coding"
-      ],
-      "sessionRules": {
-        "allowedApps": [
-          "GitKraken",
-          "PyCharm",
-          "Terminal",
-          "VS Code"
-        ],
-        "blockedApps": [
-          "Facebook",
-          "Instagram",
-          "Netflix",
-          "Reddit",
-          "TikTok",
-          "Twitter",
-          "YouTube"
-        ]
-      },
-      "distractionAttempts": 4
-    },
-    {
-      "endedAt": "2025-12-11T08:54:18.563713",
-      "elapsedSeconds": 27,
-      "selectedCategories": [
-        "Coding"
-      ],
-      "sessionRules": {
-        "allowedApps": [
-          "GitKraken",
-          "PyCharm",
-          "Terminal",
-          "VS Code"
-        ],
-        "blockedApps": [
-          "Facebook",
-          "Instagram",
-          "Netflix",
-          "Reddit",
-          "TikTok",
-          "Twitter",
-          "YouTube"
-        ]
-      },
-      "distractionAttempts": 0
-    },
-    {
-      "endedAt": "2025-12-11T08:10:17.397492",
-      "elapsedSeconds": 115,
-      "selectedCategories": [
-        "Coding"
-      ],
-      "sessionRules": {
-        "allowedApps": [
-          "GitKraken",
-          "PyCharm",
-          "Terminal",
-          "VS Code"
-        ],
-        "blockedApps": [
-          "Facebook",
-          "Instagram",
-          "Netflix",
-          "Reddit",
-          "TikTok",
-          "Twitter",
-          "YouTube"
-        ]
-      },
-      "distractionAttempts": 0
-    },
-    {
-      "endedAt": "2025-12-11T08:06:19.487491",
-      "elapsedSeconds": 428,
-      "selectedCategories": [
-        "Coding"
-      ],
-      "sessionRules": {
-        "allowedApps": [
-          "GitKraken",
-          "PyCharm",
-          "Terminal",
-          "VS Code"
-        ],
-        "blockedApps": [
-          "Facebook",
-          "Instagram",
-          "Netflix",
-          "Reddit",
-          "TikTok",
-          "Twitter",
-          "YouTube"
-        ]
-      },
-      "distractionAttempts": 1
-    },
-    {
-      "endedAt": "2025-12-11T07:57:08.534539",
-      "elapsedSeconds": 55,
-      "selectedCategories": [
-        "Coding"
-      ],
-      "sessionRules": {
-        "allowedApps": [
-          "GitKraken",
-          "PyCharm",
-          "Terminal",
-          "VS Code"
+          "Adobe XD",
+          "Figma",
+          "Google Chrome",
+          "Microsoft Edge",
+          "Mozilla Firefox",
+          "Notepad",
+          "Notion",
+          "Opera",
+          "Photoshop",
+          "Safari",
+          "Word"
         ],
         "blockedApps": [
           "Facebook",
@@ -390,7 +127,7 @@
     }
   ],
   "userPreferences": {
-    "defaultSessionMinutes": 50,
+    "defaultSessionMinutes": 54,
     "postureTips": true,
     "eyeStrainReminders": true,
     "presets": {}
