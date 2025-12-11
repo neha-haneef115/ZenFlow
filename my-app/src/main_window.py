@@ -13,6 +13,7 @@ from PyQt5.QtWidgets import (
     QCheckBox,
     QFrame,
     QSpinBox,
+    QLineEdit,
 )
 from PyQt5.QtCore import Qt, QTimer, QTime
 from PyQt5.QtGui import QPixmap, QIcon
@@ -151,12 +152,22 @@ class IntentScreen(QWidget):
             "Other",
         ]
 
+        tooltips = {
+            "Coding": "Dev tools like VS Code, PyCharm, Terminal, GitKraken will be allowed.",
+            "Designing": "Design tools like Figma, Adobe XD, Photoshop will be allowed.",
+            "Studying": "Study tools like PDF Reader, Notion, Anki will be allowed.",
+            "Writing": "Writing tools like Word, Notepad, Notion will be allowed.",
+            "Editing": "Video editing tools like Premiere Pro, DaVinci Resolve will be allowed.",
+            "Other": "Custom work that you can configure later in the next step.",
+        }
+
         row = QHBoxLayout()
         for i, name in enumerate(categories):
             btn = QPushButton(name)
             btn.setCheckable(True)
             btn.setChecked(name in self.selected)
             btn.setFixedHeight(72)
+            btn.setToolTip(tooltips.get(name, ""))
             btn.setStyleSheet(
                 (
                     "QPushButton {background:#eff6ff;border:1px solid #dbeafe;"
@@ -165,6 +176,7 @@ class IntentScreen(QWidget):
                     f"QPushButton:checked {{background:{theme.COLOR_PRIMARY};color:white;border-color:{theme.COLOR_PRIMARY};}}"
                 )
             )
+
             btn.clicked.connect(lambda _=False, n=name: self._toggle_category(n))
             self.buttons[name] = btn
             row.addWidget(btn)
@@ -176,11 +188,13 @@ class IntentScreen(QWidget):
 
         self.continue_btn = QPushButton("Continue")
         self.continue_btn.setFixedHeight(44)
+        # Enabled and disabled: white text
         self.continue_btn.setStyleSheet(
             f"QPushButton {{background:{theme.COLOR_PRIMARY};color:white;border:none;border-radius:10px;"
             "font-size:15px;font-weight:500;}"
-            "QPushButton:disabled {background:#e5e7eb;color:#9ca3af;}"
+            "QPushButton:disabled {background:#FFFFFF;color:white;border:1px solid #D1D5DB;}"
         )
+
         self.continue_btn.clicked.connect(self._on_continue)
 
         layout.addWidget(title)
@@ -203,8 +217,27 @@ class IntentScreen(QWidget):
         self.continue_btn.setEnabled(has_any)
         self.continue_btn.setVisible(has_any)
 
+    def _compute_session_rules(self):
+        """Compute allowed/blocked app lists from selected categories."""
+        allowed = set()
+        for c in self.selected:
+            for app in PRESET_APPS.get(c, []):
+                allowed.add(app)
+
+        for browser in BROWSER_APPS:
+            allowed.add(browser)
+
+        blocked = set(DISTRACTION_APPS)
+
+        return {
+            "allowedApps": sorted(allowed),
+            "blockedApps": sorted(blocked),
+        }
+
     def _on_continue(self):
         self.state["selectedCategories"] = list(self.selected)
+        # Pre-compute intelligent defaults for allowed/blocked apps
+        self.state["sessionRules"] = self._compute_session_rules()
         save_state(self.state)
         if hasattr(self.parent, "show_app_setup_screen"):
             self.parent.show_app_setup_screen()
@@ -229,17 +262,18 @@ DISTRACTION_APPS = [
     "Netflix",
 ]
 
+# Browsers are kept allowed by default for productivity use
+BROWSER_APPS = ["Chrome", "Edge", "Firefox"]
+
 
 class AppSetupScreen(QWidget):
     def __init__(self, parent=None, state=None):
         super().__init__(parent)
         self.parent = parent
         self.state = state or load_state()
-        self.allowed = set()
-        self.blocked = set(DISTRACTION_APPS)
         self.allowed_checks = {}
         self.blocked_checks = {}
-        self._init_from_categories()
+        self._init_from_state_or_categories()
         self._setup_ui()
 
     def _init_from_categories(self):
@@ -247,6 +281,16 @@ class AppSetupScreen(QWidget):
         for c in cats:
             for app in PRESET_APPS.get(c, []):
                 self.allowed.add(app)
+
+    def _init_from_state_or_categories(self):
+        rules = self.state.get("sessionRules")
+        if rules:
+            self.allowed = set(rules.get("allowedApps", []))
+            self.blocked = set(rules.get("blockedApps", DISTRACTION_APPS))
+        else:
+            self.allowed = set()
+            self.blocked = set(DISTRACTION_APPS)
+            self._init_from_categories()
 
     def _setup_ui(self):
         layout = QVBoxLayout(self)
@@ -285,6 +329,45 @@ class AppSetupScreen(QWidget):
             self.blocked_checks[app] = cb
             scroll_layout.addWidget(cb)
 
+        # Custom app inputs
+        custom_allowed_row = QHBoxLayout()
+        allowed_input = QLineEdit()
+        allowed_input.setPlaceholderText("Add allowed app or site (e.g. Notion)")
+        allowed_input.returnPressed.connect(
+            lambda: self._add_custom_allowed(allowed_input.text(), scroll_layout, allowed_input)
+        )
+        add_allowed_btn = QPushButton("Add to allowed")
+        add_allowed_btn.setFixedHeight(32)
+        add_allowed_btn.setStyleSheet(
+            f"QPushButton {{background:{theme.COLOR_PRIMARY};color:white;border:none;border-radius:8px;"
+            "font-size:12px;font-weight:500;padding:6px 14px;}"
+        )
+        add_allowed_btn.clicked.connect(
+            lambda: self._add_custom_allowed(allowed_input.text(), scroll_layout, allowed_input)
+        )
+        custom_allowed_row.addWidget(allowed_input)
+        custom_allowed_row.addWidget(add_allowed_btn)
+        scroll_layout.addLayout(custom_allowed_row)
+
+        custom_blocked_row = QHBoxLayout()
+        blocked_input = QLineEdit()
+        blocked_input.setPlaceholderText("Add blocked app or site (e.g. Instagram)")
+        blocked_input.returnPressed.connect(
+            lambda: self._add_custom_blocked(blocked_input.text(), scroll_layout, blocked_input)
+        )
+        add_blocked_btn = QPushButton("Add to blocked")
+        add_blocked_btn.setFixedHeight(32)
+        add_blocked_btn.setStyleSheet(
+            "QPushButton {background:#000000;color:white;border:none;border-radius:8px;"
+            "font-size:12px;font-weight:500;padding:6px 14px;}"
+        )
+        add_blocked_btn.clicked.connect(
+            lambda: self._add_custom_blocked(blocked_input.text(), scroll_layout, blocked_input)
+        )
+        custom_blocked_row.addWidget(blocked_input)
+        custom_blocked_row.addWidget(add_blocked_btn)
+        scroll_layout.addLayout(custom_blocked_row)
+
         scroll_layout.addStretch()
         scroll.setWidget(container)
 
@@ -320,6 +403,46 @@ class AppSetupScreen(QWidget):
         save_state(self.state)
         if hasattr(self.parent, "show_dashboard_screen"):
             self.parent.show_dashboard_screen()
+
+    def _add_custom_allowed(self, name, scroll_layout, line_edit):
+        text = (name or "").strip()
+        if not text:
+            return
+        if text in self.allowed:
+            line_edit.clear()
+            return
+        self.allowed.add(text)
+        if text in self.blocked:
+            self.blocked.discard(text)
+            if text in self.blocked_checks:
+                cb = self.blocked_checks.pop(text)
+                cb.setParent(None)
+        cb = QCheckBox(text)
+        cb.setChecked(True)
+        cb.stateChanged.connect(self._on_allowed_changed)
+        self.allowed_checks[text] = cb
+        scroll_layout.insertWidget(scroll_layout.count() - 1, cb)
+        line_edit.clear()
+
+    def _add_custom_blocked(self, name, scroll_layout, line_edit):
+        text = (name or "").strip()
+        if not text:
+            return
+        if text in self.blocked:
+            line_edit.clear()
+            return
+        self.blocked.add(text)
+        if text in self.allowed:
+            self.allowed.discard(text)
+            if text in self.allowed_checks:
+                cb = self.allowed_checks.pop(text)
+                cb.setParent(None)
+        cb = QCheckBox(text)
+        cb.setChecked(True)
+        cb.stateChanged.connect(self._on_blocked_changed)
+        self.blocked_checks[text] = cb
+        scroll_layout.insertWidget(scroll_layout.count() - 1, cb)
+        line_edit.clear()
 
 
 class FocusDashboardScreen(QWidget):
@@ -394,7 +517,7 @@ class FocusDashboardScreen(QWidget):
         bottom = QHBoxLayout()
         end_btn = QPushButton("End Session")
         end_btn.setStyleSheet(
-            f"QPushButton {{background:{theme.COLOR_BLOCKED};color:white;border:none;border-radius:10px;"
+            "QPushButton {background:#000000;color:white;border:none;border-radius:10px;"
             "padding:8px 16px;font-weight:500;}"
         )
         end_btn.clicked.connect(self._end_session)
@@ -500,13 +623,13 @@ class BlockedOverlayScreen(QWidget):
         btn_row = QHBoxLayout()
         back_btn = QPushButton("Return to Focus")
         back_btn.setStyleSheet(
-            f"QPushButton {{background:{theme.COLOR_PRIMARY};color:white;border:none;border-radius:10px;"
+            f"QPushButton {{background:{theme.COLOR_PRIMARY};color:white;border:none;border-radius:8px;"
             "padding:8px 16px;font-weight:500;}"
         )
         allow_btn = QPushButton("Allow for this session")
         allow_btn.setStyleSheet(
-            "QPushButton {background:#e5e7eb;color:#111827;border:none;border-radius:10px;"
-            "padding:8px 16px;font-weight:500;}"
+            "QPushButton {background:#e5e7eb;color:#111827;border:none;border-radius:8px;"
+            "padding:8px 20px;font-weight:500;}"
         )
         back_btn.clicked.connect(self._return_focus)
         allow_btn.clicked.connect(self._allow_once)

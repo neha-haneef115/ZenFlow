@@ -91,7 +91,7 @@ QFrame {
 primary_button_style = f"""
 QPushButton {{
     background: {COLOR_PRIMARY};
-    color: black;
+    color: #FFFFFF;
     border: none;
     border-radius: 10px;
     padding: 8px 18px;
@@ -110,7 +110,7 @@ QPushButton:disabled {{
 secondary_button_style = f"""
 QPushButton {{
     background: #FFFFFF;
-    color: {COLOR_PRIMARY};
+    color: #FFFFFF;
     border: 1px solid #D1D5DB;
     border-radius: 10px;
     padding: 8px 16px;
@@ -124,7 +124,7 @@ QPushButton:hover {{
 small_button_style = f"""
 QPushButton {{
     background: {COLOR_PRIMARY};
-    color: black;
+    color: #FFFFFF;
     border: none;
     border-radius: 8px;
     padding: 4px 10px;

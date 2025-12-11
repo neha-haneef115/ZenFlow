@@ -1,13 +1,15 @@
 {
   "selectedCategories": [
-    "Coding"
+    "Designing"
   ],
   "sessionRules": {
     "allowedApps": [
-      "GitKraken",
-      "PyCharm",
-      "Terminal",
-      "VS Code"
+      "Adobe XD",
+      "Chrome",
+      "Edge",
+      "Figma",
+      "Firefox",
+      "Photoshop"
     ],
     "blockedApps": [
       "Facebook",
@@ -19,8 +21,147 @@
       "YouTube"
     ]
   },
-  "activeSessionData": {},
+  "activeSessionData": {
+    "startTime": "2025-12-11T12:59:34.227080",
+    "distractionAttempts": 0
+  },
   "sessionHistory": [
+    {
+      "endedAt": "2025-12-11T12:57:48.279773",
+      "elapsedSeconds": 1,
+      "selectedCategories": [
+        "Designing"
+      ],
+      "sessionRules": {
+        "allowedApps": [
+          "Adobe XD",
+          "Chrome",
+          "Edge",
+          "Figma",
+          "Firefox",
+          "Photoshop"
+        ],
+        "blockedApps": [
+          "Facebook",
+          "Instagram",
+          "Netflix",
+          "Reddit",
+          "TikTok",
+          "Twitter",
+          "YouTube"
+        ]
+      },
+      "distractionAttempts": 0
+    },
+    {
+      "endedAt": "2025-12-11T12:37:47.308242",
+      "elapsedSeconds": 3,
+      "selectedCategories": [
+        "Designing"
+      ],
+      "sessionRules": {
+        "allowedApps": [
+          "Adobe XD",
+          "Chrome",
+          "Edge",
+          "Figma",
+          "Firefox",
+          "Photoshop",
+          "Twitter"
+        ],
+        "blockedApps": [
+          "Facebook",
+          "Instagram",
+          "Netflix",
+          "Reddit",
+          "Slack",
+          "TikTok",
+          "YouTube"
+        ]
+      },
+      "distractionAttempts": 0
+    },
+    {
+      "endedAt": "2025-12-11T12:37:07.077500",
+      "elapsedSeconds": 2,
+      "selectedCategories": [
+        "Designing"
+      ],
+      "sessionRules": {
+        "allowedApps": [
+          "Adobe XD",
+          "Chrome",
+          "Edge",
+          "Figma",
+          "Firefox",
+          "Photoshop"
+        ],
+        "blockedApps": [
+          "Facebook",
+          "Instagram",
+          "Netflix",
+          "Reddit",
+          "TikTok",
+          "Twitter",
+          "YouTube"
+        ]
+      },
+      "distractionAttempts": 0
+    },
+    {
+      "endedAt": "2025-12-11T12:19:11.766397",
+      "elapsedSeconds": 2,
+      "selectedCategories": [
+        "Designing"
+      ],
+      "sessionRules": {
+        "allowedApps": [
+          "Adobe XD",
+          "Chrome",
+          "Edge",
+          "Figma",
+          "Firefox",
+          "Photoshop"
+        ],
+        "blockedApps": [
+          "Facebook",
+          "Instagram",
+          "Netflix",
+          "Reddit",
+          "TikTok",
+          "Twitter",
+          "YouTube"
+        ]
+      },
+      "distractionAttempts": 0
+    },
+    {
+      "endedAt": "2025-12-11T11:38:51.674004",
+      "elapsedSeconds": 1,
+      "selectedCategories": [
+        "Writing"
+      ],
+      "sessionRules": {
+        "allowedApps": [
+          "Chrome",
+          "Edge",
+          "Firefox",
+          "Notepad",
+          "Notion",
+          "Word"
+        ],
+        "blockedApps": [
+          "Facebook",
+          "Instagram",
+          "Netflix",
+          "Reddit",
+          "TikTok",
+          "Twitter",
+          "YouTube"
+        ]
+      },
+      "distractionAttempts": 0
+    },
     {
       "endedAt": "2025-12-11T11:10:16.487658",
       "elapsedSeconds": 20,

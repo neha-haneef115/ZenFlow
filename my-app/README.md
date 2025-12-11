@@ -29,7 +29,7 @@ pip install -r requirements.txt
 1. Run the application:
 
 ```bash
-python main.py
+python src/main.py
 ```
 
 2. When prompted, enter what you're working on today
