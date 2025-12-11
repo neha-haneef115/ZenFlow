@@ -1,6 +1,8 @@
 {
   "selectedCategories": [
-    "Designing"
+    "Writing",
+    "Designing",
+    "Other"
   ],
   "sessionRules": {
     "allowedApps": [
@@ -9,33 +11,35 @@
       "Google Chrome",
       "Microsoft Edge",
       "Mozilla Firefox",
+      "Notepad",
       "Notion",
       "Opera",
       "Photoshop",
-      "Safari"
+      "Safari",
+      "Word",
+      "Instagram"
     ],
     "blockedApps": [
       "Facebook",
-      "Instagram",
       "Netflix",
       "Reddit",
-      "Slack",
       "TikTok",
       "Twitter",
       "YouTube"
     ]
   },
   "activeSessionData": {
-    "startTime": "Thu Dec 11 13:46:26 2025",
-    "distractionAttempts": 0
+    "distractionAttempts": 2
   },
   "sessionHistory": [
     {
-      "startTime": "Thu Dec 11 13:40:31 2025",
-      "endedAt": "Thu Dec 11 13:40:34 2025",
-      "elapsedSeconds": 2,
+      "startTime": "Thu Dec 11 17:01:41 2025",
+      "endedAt": "Thu Dec 11 17:01:46 2025",
+      "elapsedSeconds": 5,
       "selectedCategories": [
-        "Designing"
+        "Writing",
+        "Designing",
+        "Other"
       ],
       "sessionRules": {
         "allowedApps": [
@@ -44,9 +48,12 @@
           "Google Chrome",
           "Microsoft Edge",
           "Mozilla Firefox",
+          "Notepad",
+          "Notion",
           "Opera",
           "Photoshop",
-          "Safari"
+          "Safari",
+          "Word"
         ],
         "blockedApps": [
           "Facebook",
@@ -61,40 +68,9 @@
       "distractionAttempts": 0
     },
     {
-      "startTime": "Thu Dec 11 13:35:23 2025",
-      "endedAt": "Thu Dec 11 13:35:44 2025",
-      "elapsedSeconds": 20,
-      "selectedCategories": [
-        "Designing"
-      ],
-      "sessionRules": {
-        "allowedApps": [
-          "Adobe XD",
-          "Figma",
-          "Google Chrome",
-          "Microsoft Edge",
-          "Mozilla Firefox",
-          "Opera",
-          "Photoshop",
-          "Safari",
-          "Slack"
-        ],
-        "blockedApps": [
-          "Facebook",
-          "Instagram",
-          "Netflix",
-          "Reddit",
-          "TikTok",
-          "Twitter",
-          "YouTube"
-        ]
-      },
-      "distractionAttempts": 1
-    },
-    {
-      "startTime": "Thu Dec 11 13:30:09 2025",
-      "endedAt": "Thu Dec 11 13:30:30 2025",
-      "elapsedSeconds": 21,
+      "startTime": "Thu Dec 11 17:00:02 2025",
+      "endedAt": "Thu Dec 11 17:00:22 2025",
+      "elapsedSeconds": 19,
       "selectedCategories": [
         "Writing",
         "Designing"
@@ -124,10 +100,690 @@
         ]
       },
       "distractionAttempts": 0
+    },
+    {
+      "startTime": "Thu Dec 11 16:26:47 2025",
+      "endedAt": "Thu Dec 11 16:26:52 2025",
+      "elapsedSeconds": 315,
+      "selectedCategories": [
+        "Designing",
+        "Writing"
+      ],
+      "sessionRules": {
+        "allowedApps": [
+          "Adobe XD",
+          "Figma",
+          "Google Chrome",
+          "Microsoft Edge",
+          "Mozilla Firefox",
+          "Notepad",
+          "Notion",
+          "Opera",
+          "Photoshop",
+          "Safari",
+          "Word"
+        ],
+        "blockedApps": [
+          "Facebook",
+          "Instagram",
+          "Netflix",
+          "Reddit",
+          "TikTok",
+          "Twitter",
+          "YouTube"
+        ]
+      },
+      "distractionAttempts": 3
+    },
+    {
+      "startTime": "Thu Dec 11 16:25:56 2025",
+      "endedAt": "Thu Dec 11 16:26:08 2025",
+      "elapsedSeconds": 315,
+      "selectedCategories": [
+        "Designing",
+        "Writing"
+      ],
+      "sessionRules": {
+        "allowedApps": [
+          "Adobe XD",
+          "Figma",
+          "Google Chrome",
+          "Microsoft Edge",
+          "Mozilla Firefox",
+          "Notepad",
+          "Notion",
+          "Opera",
+          "Photoshop",
+          "Safari",
+          "Word"
+        ],
+        "blockedApps": [
+          "Facebook",
+          "Instagram",
+          "Netflix",
+          "Reddit",
+          "TikTok",
+          "Twitter",
+          "YouTube"
+        ]
+      },
+      "distractionAttempts": 3
+    },
+    {
+      "startTime": "Thu Dec 11 16:25:02 2025",
+      "endedAt": "Thu Dec 11 16:25:42 2025",
+      "elapsedSeconds": 315,
+      "selectedCategories": [
+        "Designing",
+        "Writing"
+      ],
+      "sessionRules": {
+        "allowedApps": [
+          "Adobe XD",
+          "Figma",
+          "Google Chrome",
+          "Microsoft Edge",
+          "Mozilla Firefox",
+          "Notepad",
+          "Notion",
+          "Opera",
+          "Photoshop",
+          "Safari",
+          "Word",
+          "Instagram"
+        ],
+        "blockedApps": [
+          "Facebook",
+          "Netflix",
+          "Reddit",
+          "TikTok",
+          "Twitter",
+          "YouTube"
+        ]
+      },
+      "distractionAttempts": 3
+    },
+    {
+      "startTime": "Thu Dec 11 16:19:35 2025",
+      "endedAt": "Thu Dec 11 16:24:54 2025",
+      "elapsedSeconds": 315,
+      "selectedCategories": [
+        "Designing",
+        "Writing"
+      ],
+      "sessionRules": {
+        "allowedApps": [
+          "Adobe XD",
+          "Figma",
+          "Google Chrome",
+          "Microsoft Edge",
+          "Mozilla Firefox",
+          "Notepad",
+          "Notion",
+          "Opera",
+          "Photoshop",
+          "Safari",
+          "Word",
+          "Instagram"
+        ],
+        "blockedApps": [
+          "Facebook",
+          "Netflix",
+          "Reddit",
+          "TikTok",
+          "Twitter",
+          "YouTube"
+        ]
+      },
+      "distractionAttempts": 2
+    },
+    {
+      "startTime": "Thu Dec 11 15:51:29 2025",
+      "endedAt": "Thu Dec 11 16:00:09 2025",
+      "elapsedSeconds": 514,
+      "selectedCategories": [
+        "Designing",
+        "Writing"
+      ],
+      "sessionRules": {
+        "allowedApps": [
+          "Adobe XD",
+          "Figma",
+          "Google Chrome",
+          "Microsoft Edge",
+          "Mozilla Firefox",
+          "Notepad",
+          "Notion",
+          "Opera",
+          "Photoshop",
+          "Safari",
+          "Word"
+        ],
+        "blockedApps": [
+          "Facebook",
+          "Instagram",
+          "Netflix",
+          "Reddit",
+          "TikTok",
+          "Twitter",
+          "YouTube"
+        ]
+      },
+      "distractionAttempts": 4
+    },
+    {
+      "startTime": "Thu Dec 11 15:38:22 2025",
+      "endedAt": "Thu Dec 11 15:38:24 2025",
+      "elapsedSeconds": 2,
+      "selectedCategories": [
+        "Writing",
+        "Designing"
+      ],
+      "sessionRules": {
+        "allowedApps": [
+          "Adobe XD",
+          "Figma",
+          "Google Chrome",
+          "Microsoft Edge",
+          "Mozilla Firefox",
+          "Notepad",
+          "Notion",
+          "Opera",
+          "Photoshop",
+          "Safari",
+          "Word"
+        ],
+        "blockedApps": [
+          "Facebook",
+          "Instagram",
+          "Netflix",
+          "Reddit",
+          "TikTok",
+          "Twitter",
+          "YouTube"
+        ]
+      },
+      "distractionAttempts": 0
+    },
+    {
+      "startTime": "Thu Dec 11 15:34:29 2025",
+      "endedAt": "Thu Dec 11 15:34:33 2025",
+      "elapsedSeconds": 8,
+      "selectedCategories": [
+        "Designing",
+        "Writing"
+      ],
+      "sessionRules": {
+        "allowedApps": [
+          "Adobe XD",
+          "Figma",
+          "Google Chrome",
+          "Microsoft Edge",
+          "Mozilla Firefox",
+          "Notepad",
+          "Notion",
+          "Opera",
+          "Photoshop",
+          "Safari",
+          "Word"
+        ],
+        "blockedApps": [
+          "Facebook",
+          "Instagram",
+          "Netflix",
+          "Reddit",
+          "TikTok",
+          "Twitter",
+          "YouTube"
+        ]
+      },
+      "distractionAttempts": 0
+    },
+    {
+      "startTime": "Thu Dec 11 15:34:15 2025",
+      "endedAt": "Thu Dec 11 15:34:23 2025",
+      "elapsedSeconds": 8,
+      "selectedCategories": [
+        "Designing",
+        "Writing"
+      ],
+      "sessionRules": {
+        "allowedApps": [
+          "Adobe XD",
+          "Figma",
+          "Google Chrome",
+          "Microsoft Edge",
+          "Mozilla Firefox",
+          "Notepad",
+          "Notion",
+          "Opera",
+          "Photoshop",
+          "Safari",
+          "Word"
+        ],
+        "blockedApps": [
+          "Facebook",
+          "Instagram",
+          "Netflix",
+          "Reddit",
+          "TikTok",
+          "Twitter",
+          "YouTube"
+        ]
+      },
+      "distractionAttempts": 0
+    },
+    {
+      "startTime": "Thu Dec 11 15:18:28 2025",
+      "endedAt": "Thu Dec 11 15:18:47 2025",
+      "elapsedSeconds": 19,
+      "selectedCategories": [
+        "Writing",
+        "Designing"
+      ],
+      "sessionRules": {
+        "allowedApps": [
+          "Adobe XD",
+          "Figma",
+          "Google Chrome",
+          "Microsoft Edge",
+          "Mozilla Firefox",
+          "Notepad",
+          "Notion",
+          "Opera",
+          "Photoshop",
+          "Safari",
+          "Word"
+        ],
+        "blockedApps": [
+          "Facebook",
+          "Instagram",
+          "Netflix",
+          "Reddit",
+          "TikTok",
+          "Twitter",
+          "YouTube"
+        ]
+      },
+      "distractionAttempts": 1
+    },
+    {
+      "startTime": "Thu Dec 11 15:16:35 2025",
+      "endedAt": "Thu Dec 11 15:16:37 2025",
+      "elapsedSeconds": 1,
+      "selectedCategories": [
+        "Designing",
+        "Writing"
+      ],
+      "sessionRules": {
+        "allowedApps": [
+          "Adobe XD",
+          "Figma",
+          "Google Chrome",
+          "Microsoft Edge",
+          "Mozilla Firefox",
+          "Notepad",
+          "Notion",
+          "Opera",
+          "Photoshop",
+          "Safari",
+          "Word"
+        ],
+        "blockedApps": [
+          "Facebook",
+          "Instagram",
+          "Netflix",
+          "Reddit",
+          "TikTok",
+          "Twitter",
+          "YouTube"
+        ]
+      },
+      "distractionAttempts": 0
+    },
+    {
+      "startTime": "Thu Dec 11 15:15:55 2025",
+      "endedAt": "Thu Dec 11 15:16:06 2025",
+      "elapsedSeconds": 1,
+      "selectedCategories": [
+        "Designing",
+        "Writing"
+      ],
+      "sessionRules": {
+        "allowedApps": [
+          "Adobe XD",
+          "Figma",
+          "Google Chrome",
+          "Microsoft Edge",
+          "Mozilla Firefox",
+          "Notepad",
+          "Notion",
+          "Opera",
+          "Photoshop",
+          "Safari",
+          "Word"
+        ],
+        "blockedApps": [
+          "Facebook",
+          "Instagram",
+          "Netflix",
+          "Reddit",
+          "TikTok",
+          "Twitter",
+          "YouTube"
+        ]
+      },
+      "distractionAttempts": 0
+    },
+    {
+      "startTime": "Thu Dec 11 15:15:50 2025",
+      "endedAt": "Thu Dec 11 15:15:51 2025",
+      "elapsedSeconds": 1,
+      "selectedCategories": [
+        "Designing",
+        "Writing"
+      ],
+      "sessionRules": {
+        "allowedApps": [
+          "Adobe XD",
+          "Figma",
+          "Google Chrome",
+          "Microsoft Edge",
+          "Mozilla Firefox",
+          "Notepad",
+          "Notion",
+          "Opera",
+          "Photoshop",
+          "Safari",
+          "Word"
+        ],
+        "blockedApps": [
+          "Facebook",
+          "Instagram",
+          "Netflix",
+          "Reddit",
+          "TikTok",
+          "Twitter",
+          "YouTube"
+        ]
+      },
+      "distractionAttempts": 0
+    },
+    {
+      "startTime": "Thu Dec 11 15:14:39 2025",
+      "endedAt": "Thu Dec 11 15:15:20 2025",
+      "elapsedSeconds": 41,
+      "selectedCategories": [
+        "Writing",
+        "Designing"
+      ],
+      "sessionRules": {
+        "allowedApps": [
+          "Adobe XD",
+          "Figma",
+          "Google Chrome",
+          "Microsoft Edge",
+          "Mozilla Firefox",
+          "Notepad",
+          "Notion",
+          "Opera",
+          "Photoshop",
+          "Safari",
+          "Word"
+        ],
+        "blockedApps": [
+          "Facebook",
+          "Instagram",
+          "Netflix",
+          "Reddit",
+          "TikTok",
+          "Twitter",
+          "YouTube"
+        ]
+      },
+      "distractionAttempts": 2
+    },
+    {
+      "startTime": "Thu Dec 11 15:08:36 2025",
+      "endedAt": "Thu Dec 11 15:08:38 2025",
+      "elapsedSeconds": 1,
+      "selectedCategories": [
+        "Designing",
+        "Writing"
+      ],
+      "sessionRules": {
+        "allowedApps": [
+          "Adobe XD",
+          "Figma",
+          "Google Chrome",
+          "Microsoft Edge",
+          "Mozilla Firefox",
+          "Notepad",
+          "Notion",
+          "Opera",
+          "Photoshop",
+          "Safari",
+          "Word"
+        ],
+        "blockedApps": [
+          "Facebook",
+          "Instagram",
+          "Netflix",
+          "Reddit",
+          "TikTok",
+          "Twitter",
+          "YouTube"
+        ]
+      },
+      "distractionAttempts": 0
+    },
+    {
+      "startTime": "Thu Dec 11 15:03:51 2025",
+      "endedAt": "Thu Dec 11 15:04:03 2025",
+      "elapsedSeconds": 11,
+      "selectedCategories": [
+        "Writing",
+        "Designing"
+      ],
+      "sessionRules": {
+        "allowedApps": [
+          "Adobe XD",
+          "Figma",
+          "Google Chrome",
+          "Microsoft Edge",
+          "Mozilla Firefox",
+          "Notepad",
+          "Notion",
+          "Opera",
+          "Photoshop",
+          "Safari",
+          "Word"
+        ],
+        "blockedApps": [
+          "Facebook",
+          "Instagram",
+          "Netflix",
+          "Reddit",
+          "TikTok",
+          "Twitter",
+          "YouTube"
+        ]
+      },
+      "distractionAttempts": 0
+    },
+    {
+      "startTime": "Thu Dec 11 15:01:42 2025",
+      "endedAt": "Thu Dec 11 15:01:44 2025",
+      "elapsedSeconds": 1,
+      "selectedCategories": [
+        "Writing",
+        "Designing"
+      ],
+      "sessionRules": {
+        "allowedApps": [
+          "Adobe XD",
+          "Figma",
+          "Google Chrome",
+          "Microsoft Edge",
+          "Mozilla Firefox",
+          "Notepad",
+          "Notion",
+          "Opera",
+          "Photoshop",
+          "Safari",
+          "Word",
+          "Instagram"
+        ],
+        "blockedApps": [
+          "Facebook",
+          "Netflix",
+          "Reddit",
+          "TikTok",
+          "Twitter",
+          "YouTube"
+        ]
+      },
+      "distractionAttempts": 0
+    },
+    {
+      "startTime": "Thu Dec 11 15:00:09 2025",
+      "endedAt": "Thu Dec 11 15:00:11 2025",
+      "elapsedSeconds": 1,
+      "selectedCategories": [
+        "Writing",
+        "Designing"
+      ],
+      "sessionRules": {
+        "allowedApps": [
+          "Adobe XD",
+          "Figma",
+          "Google Chrome",
+          "Microsoft Edge",
+          "Mozilla Firefox",
+          "Notepad",
+          "Notion",
+          "Opera",
+          "Photoshop",
+          "Safari",
+          "Word"
+        ],
+        "blockedApps": [
+          "Facebook",
+          "Instagram",
+          "Netflix",
+          "Reddit",
+          "TikTok",
+          "Twitter",
+          "YouTube"
+        ]
+      },
+      "distractionAttempts": 0
+    },
+    {
+      "startTime": "Thu Dec 11 14:56:42 2025",
+      "endedAt": "Thu Dec 11 14:57:59 2025",
+      "elapsedSeconds": 8,
+      "selectedCategories": [
+        "Designing",
+        "Writing"
+      ],
+      "sessionRules": {
+        "allowedApps": [
+          "Adobe XD",
+          "Figma",
+          "Google Chrome",
+          "Microsoft Edge",
+          "Mozilla Firefox",
+          "Notepad",
+          "Notion",
+          "Opera",
+          "Photoshop",
+          "Safari",
+          "Word",
+          "Instagram"
+        ],
+        "blockedApps": [
+          "Facebook",
+          "Netflix",
+          "Reddit",
+          "TikTok",
+          "Twitter",
+          "YouTube"
+        ]
+      },
+      "distractionAttempts": 3
+    },
+    {
+      "startTime": "Thu Dec 11 14:56:26 2025",
+      "endedAt": "Thu Dec 11 14:56:35 2025",
+      "elapsedSeconds": 8,
+      "selectedCategories": [
+        "Designing",
+        "Writing"
+      ],
+      "sessionRules": {
+        "allowedApps": [
+          "Adobe XD",
+          "Figma",
+          "Google Chrome",
+          "Microsoft Edge",
+          "Mozilla Firefox",
+          "Notepad",
+          "Notion",
+          "Opera",
+          "Photoshop",
+          "Safari",
+          "Word"
+        ],
+        "blockedApps": [
+          "Facebook",
+          "Instagram",
+          "Netflix",
+          "Reddit",
+          "TikTok",
+          "Twitter",
+          "YouTube"
+        ]
+      },
+      "distractionAttempts": 0
+    },
+    {
+      "startTime": "Thu Dec 11 14:53:08 2025",
+      "endedAt": "Thu Dec 11 14:53:16 2025",
+      "elapsedSeconds": 7,
+      "selectedCategories": [
+        "Designing",
+        "Writing"
+      ],
+      "sessionRules": {
+        "allowedApps": [
+          "Adobe XD",
+          "Figma",
+          "Google Chrome",
+          "Microsoft Edge",
+          "Mozilla Firefox",
+          "Notepad",
+          "Notion",
+          "Opera",
+          "Photoshop",
+          "Safari",
+          "Word"
+        ],
+        "blockedApps": [
+          "Facebook",
+          "Instagram",
+          "Netflix",
+          "Reddit",
+          "TikTok",
+          "Twitter",
+          "YouTube"
+        ]
+      },
+      "distractionAttempts": 0
     }
   ],
   "userPreferences": {
-    "defaultSessionMinutes": 54,
+    "defaultSessionMinutes": 58,
     "postureTips": true,
     "eyeStrainReminders": true,
     "presets": {}

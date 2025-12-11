@@ -383,7 +383,7 @@ class HomeScreen(QWidget):
         history_btn = QPushButton("Session History")
         history_btn.setFixedHeight(44)
         history_btn.setStyleSheet(
-            "QPushButton {background:#e5e7eb;color:#111827;border:none;border-radius:10px;"
+            "QPushButton {background:#000000;color:white;border:none;border-radius:10px;"
             "font-size:15px;font-weight:500;}"
         )
         history_btn.clicked.connect(self._show_history)

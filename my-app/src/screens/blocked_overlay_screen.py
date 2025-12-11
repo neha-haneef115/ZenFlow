@@ -1,5 +1,6 @@
-from PyQt5.QtWidgets import QWidget, QVBoxLayout, QHBoxLayout, QLabel, QPushButton
+from PyQt5.QtWidgets import QWidget, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QApplication, QStyle
 from PyQt5.QtCore import Qt
+from PyQt5.QtGui import QFont, QFontDatabase
 import theme
 
 
@@ -21,87 +22,106 @@ class BlockedOverlayScreen(QWidget):
         self.setAttribute(Qt.WA_TranslucentBackground)
         self.showFullScreen()
 
-        # Main layout with semi-transparent background
+        # Main layout
         main_layout = QVBoxLayout(self)
         main_layout.setContentsMargins(0, 0, 0, 0)
         
-        # Overlay background
+        # Overlay background - clean blur effect
         overlay = QWidget()
         overlay.setStyleSheet(
-            "background-color: rgba(0, 0, 0, 0.85);"
-            "border-radius: 0px;"
+            "background: rgba(0, 0, 0, 0.88);"
         )
         overlay_layout = QVBoxLayout(overlay)
-        overlay_layout.setContentsMargins(40, 40, 40, 40)
+        overlay_layout.setContentsMargins(0, 0, 0, 0)
         overlay_layout.setAlignment(Qt.AlignCenter)
 
-        # Content card
+        # Content card - minimal and clean
         card = QWidget()
-        card.setFixedWidth(500)
+        card.setFixedWidth(420)
         card.setStyleSheet(
-            "background-color: white;"
+            "background-color: #ffffff;"
             "border-radius: 16px;"
-            "padding: 32px;"
         )
         card_layout = QVBoxLayout(card)
-        card_layout.setSpacing(20)
+        card_layout.setSpacing(12)
+        card_layout.setContentsMargins(32, 28, 32, 28)
         card_layout.setAlignment(Qt.AlignCenter)
 
-        # Icon and title
-        icon_label = QLabel("🚫")
-        icon_label.setStyleSheet("font-size: 48px;")
+        # Icon - simple and minimal
+        icon_label = QLabel()
+        icon = QApplication.style().standardIcon(QStyle.SP_MessageBoxCritical)
+        pixmap = icon.pixmap(48, 48)
+        icon_label.setPixmap(pixmap)
         icon_label.setAlignment(Qt.AlignCenter)
+        icon_label.setStyleSheet("background: transparent;")
 
-        title = QLabel("This app breaks your focus")
+        # Title - clean typography
+        title = QLabel("App Blocked")
         title.setStyleSheet(
-            f"font-size: 24px; font-weight: 600; color: {theme.COLOR_TEXT_MAIN};"
+            "font-size: 24px; font-weight: 600; color: #111827; "
+            "background: transparent;"
         )
         title.setAlignment(Qt.AlignCenter)
 
-        # App name
+        # App name - subtle accent
         app_label = QLabel(self.app_name)
         app_label.setStyleSheet(
-            "font-size: 18px; color: #6b7280;"
+            "font-size: 15px; font-weight: 500; color: #6b7280; "
+            "background: transparent;"
         )
         app_label.setAlignment(Qt.AlignCenter)
 
-        # Description
-        desc = QLabel(
-            "You can return to your work or allow it for this session"
+        # Description - minimal
+        desc = QLabel("Choose an option to continue")
+        desc.setStyleSheet(
+            "font-size: 13px; color: #9ca3af; "
+            "background: transparent;"
         )
-        desc.setStyleSheet("font-size: 14px; color: #6b7280;")
         desc.setAlignment(Qt.AlignCenter)
-        desc.setWordWrap(True)
 
-        # Buttons
+        # Buttons - clean and simple
         button_layout = QHBoxLayout()
-        button_layout.setSpacing(12)
+        button_layout.setSpacing(10)
 
         back_btn = QPushButton("Return to Focus")
         back_btn.setStyleSheet(
-            f"QPushButton {{background:{theme.COLOR_PRIMARY};color:white;border:none;border-radius:8px;"
-            "padding:12px 24px;font-size:14px;font-weight:500;}}"
+            "QPushButton {"
+            "background: #6E260E;"
+            "color: white; border: none; border-radius: 8px;"
+            "padding: 12px 24px; font-size: 13px; font-weight: 500;"
+            "}"
+            "QPushButton:hover {"
+            "background: #8B3214;"
+            "}"
         )
+        back_btn.setCursor(Qt.PointingHandCursor)
         back_btn.clicked.connect(self._return_focus)
 
-        allow_btn = QPushButton("Allow for this session")
+        allow_btn = QPushButton("Allow Once")
         allow_btn.setStyleSheet(
-            "QPushButton {background:#f3f4f6;color:#111827;border:none;border-radius:8px;"
-            "padding:12px 20px;font-size:14px;font-weight:500;}"
+            "QPushButton {"
+            "background: #f9fafb; color: #374151; border: 1px solid #e5e7eb;"
+            "border-radius: 8px; padding: 12px 24px; font-size: 13px; font-weight: 500;"
+            "}"
+            "QPushButton:hover {"
+            "background: #f3f4f6;"
+            "}"
         )
+        allow_btn.setCursor(Qt.PointingHandCursor)
         allow_btn.clicked.connect(self._allow_once)
 
-        button_layout.addStretch()
         button_layout.addWidget(back_btn)
         button_layout.addWidget(allow_btn)
-        button_layout.addStretch()
 
         # Add to card layout
         card_layout.addWidget(icon_label)
+        card_layout.addSpacing(4)
         card_layout.addWidget(title)
+        card_layout.addSpacing(2)
         card_layout.addWidget(app_label)
+        card_layout.addSpacing(8)
         card_layout.addWidget(desc)
-        card_layout.addSpacing(20)
+        card_layout.addSpacing(12)
         card_layout.addLayout(button_layout)
 
         # Add card to overlay
@@ -111,9 +131,19 @@ class BlockedOverlayScreen(QWidget):
         main_layout.addWidget(overlay)
 
     def _return_focus(self):
+        # Hide the overlay first
         if hasattr(self.parent, "hide_blocked_overlay"):
             self.parent.hide_blocked_overlay()
-        # Ensure we return to the dashboard screen
+        
+        # Ensure the parent window is shown and raised
+        if hasattr(self.parent, "showNormal"):
+            self.parent.showNormal()
+        if hasattr(self.parent, "raise_"):
+            self.parent.raise_()
+        if hasattr(self.parent, "activateWindow"):
+            self.parent.activateWindow()
+        
+        # Route to dashboard
         if hasattr(self.parent, "show_dashboard"):
             self.parent.show_dashboard()
 
@@ -130,16 +160,20 @@ class BlockedOverlayScreen(QWidget):
         
         state["sessionRules"] = rules
         
-        # Also mark this exe as allowed for the current session in MainWindow
+        # Mark this exe as allowed for the current session
         if hasattr(self.parent, "allow_exe_for_session"):
             self.parent.allow_exe_for_session(self.app_name)
         
-        # And allow as a domain for this session if applicable (web blocking)
+        # Allow as a domain for this session if applicable
         if hasattr(self.parent, "allow_domain_for_session"):
             self.parent.allow_domain_for_session(self.app_name)
 
+        # Hide overlay and minimize to let user access the app
         if hasattr(self.parent, "hide_blocked_overlay"):
             self.parent.hide_blocked_overlay()
+        
+        if hasattr(self.parent, "showMinimized"):
+            self.parent.showMinimized()
 
     def keyPressEvent(self, event):
         # Allow Escape to close

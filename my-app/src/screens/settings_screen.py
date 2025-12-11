@@ -65,6 +65,10 @@ class SettingsScreen(QWidget):
         history_layout = QVBoxLayout(history_group)
         
         clear_btn = QPushButton("Clear all session history")
+        clear_btn.setStyleSheet(
+            "QPushButton {background:#000000;color:white;border:none;border-radius:8px;"
+            "font-size:14px;font-weight:500;padding:10px 16px;}"
+        )
         clear_btn.clicked.connect(self._clear_history)
         history_layout.addWidget(clear_btn)
 
@@ -90,9 +94,10 @@ class SettingsScreen(QWidget):
 
         # Back button
         back_btn = QPushButton("Back to Dashboard")
+        back_btn.setFixedSize(180, 44)
         back_btn.setStyleSheet(
-            f"QPushButton {{background:{theme.COLOR_PRIMARY};color:white;border:none;border-radius:10px;"
-            "font-size:15px;font-weight:500;}"
+            "QPushButton {background:#6E260E;color:white;border:none;border-radius:8px;"
+            "font-size:14px;font-weight:500;padding:8px 16px;}"
         )
         back_btn.clicked.connect(self._go_back)
 

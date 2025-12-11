@@ -51,6 +51,35 @@ class AppSetupScreen(QWidget):
 
         scroll = QScrollArea()
         scroll.setWidgetResizable(True)
+        scroll.setStyleSheet(
+            "QScrollArea {"
+            "border: none;"
+            "background-color: transparent;"
+            "}"
+            "QScrollArea > QWidget > QWidget {"
+            "background-color: transparent;"
+            "}"
+            "QScrollBar:vertical {"
+            "border: none;"
+            "background: #f3f4f6;"
+            "width: 8px;"
+            "border-radius: 4px;"
+            "}"
+            "QScrollBar::handle:vertical {"
+            "background: #9ca3af;"
+            "min-height: 20px;"
+            "border-radius: 4px;"
+            "}"
+            "QScrollBar::handle:vertical:hover {"
+            "background: #6b7280;"
+            "}"
+            "QScrollBar::handle:vertical:pressed {"
+            "background: #4b5563;"
+            "}"
+            "QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {"
+            "height: 0px;"
+            "}"
+        )
         container = QWidget()
         v_layout = QVBoxLayout(container)
         v_layout.setSpacing(16)
@@ -76,17 +105,35 @@ class AppSetupScreen(QWidget):
 
         # Custom app input for allowed
         custom_allowed_row = QHBoxLayout()
+        custom_allowed_row.setSpacing(8)
+        
         allowed_input = QLineEdit()
         allowed_input.setPlaceholderText("Add allowed app or site (e.g. Notion)")
+        allowed_input.setStyleSheet(
+            "QLineEdit {"
+            "border: 1px solid #e5e7eb;"
+            "border-radius: 8px;"
+            "padding: 10px 12px;"
+            "font-size: 13px;"
+            "background-color: #ffffff;"
+            "color: #374151;"
+            "}"
+            "QLineEdit:focus {"
+            "border: 2px solid #6E260E;"
+            "outline: none;"
+            "}"
+        )
+        
         add_allowed_btn = QPushButton("Add to allowed")
         add_allowed_btn.setStyleSheet(
-            f"QPushButton {{background:{theme.COLOR_PRIMARY};color:white;border:none;border-radius:8px;"
-            "font-size:12px;font-weight:500;padding:6px 14px;}"
+            "QPushButton {background:#6E260E;color:white;border:none;border-radius:8px;"
+            "font-size:12px;font-weight:500;padding:10px 16px;}"
         )
         add_allowed_btn.clicked.connect(
             lambda: self._add_custom_allowed(allowed_input.text())
         )
-        custom_allowed_row.addWidget(allowed_input)
+        
+        custom_allowed_row.addWidget(allowed_input, 1)
         custom_allowed_row.addWidget(add_allowed_btn)
         v_layout.addLayout(custom_allowed_row)
         
@@ -114,17 +161,35 @@ class AppSetupScreen(QWidget):
 
         # Custom app input for blocked
         custom_blocked_row = QHBoxLayout()
+        custom_blocked_row.setSpacing(8)
+        
         blocked_input = QLineEdit()
         blocked_input.setPlaceholderText("Add blocked app or site (e.g. Instagram)")
+        blocked_input.setStyleSheet(
+            "QLineEdit {"
+            "border: 1px solid #e5e7eb;"
+            "border-radius: 8px;"
+            "padding: 10px 12px;"
+            "font-size: 13px;"
+            "background-color: #ffffff;"
+            "color: #374151;"
+            "}"
+            "QLineEdit:focus {"
+            "border: 2px solid #6E260E;"
+            "outline: none;"
+            "}"
+        )
+        
         add_blocked_btn = QPushButton("Add to blocked")
         add_blocked_btn.setStyleSheet(
             "QPushButton {background:#000000;color:white;border:none;border-radius:8px;"
-            "font-size:12px;font-weight:500;padding:6px 14px;}"
+            "font-size:12px;font-weight:500;padding:10px 16px;}"
         )
         add_blocked_btn.clicked.connect(
             lambda: self._add_custom_blocked(blocked_input.text())
         )
-        custom_blocked_row.addWidget(blocked_input)
+        
+        custom_blocked_row.addWidget(blocked_input, 1)
         custom_blocked_row.addWidget(add_blocked_btn)
         v_layout.addLayout(custom_blocked_row)
         
@@ -137,8 +202,8 @@ class AppSetupScreen(QWidget):
         start_btn = QPushButton("Start Session")
         start_btn.setFixedHeight(44)
         start_btn.setStyleSheet(
-            f"QPushButton {{background:{theme.COLOR_PRIMARY};color:white;border:none;border-radius:10px;"
-            "font-size:15px;font-weight:500;}"
+            "QPushButton {background:#6E260E;color:white;border:none;border-radius:8px;"
+            "font-size:13px;font-weight:500;padding:10px 20px;}"
         )
         start_btn.clicked.connect(self._on_start_session)
 

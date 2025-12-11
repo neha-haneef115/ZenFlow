@@ -91,7 +91,7 @@ class IntentScreen(QWidget):
                     "QPushButton {background:#f5f5f5;border:1px solid #d4d4d4;"
                     f"border-radius:12px;font-size:15px;font-weight:500;color:{theme.COLOR_TEXT_MAIN};"
                     "}"
-                    f"QPushButton:checked {{background:{theme.COLOR_PRIMARY};color:white;border-color:{theme.COLOR_PRIMARY};}}"
+                    f"QPushButton:checked {{background:#f5f5f5;color:#6E260E;border:2px solid #6E260E;}}"
                 )
             )
 

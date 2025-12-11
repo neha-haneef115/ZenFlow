@@ -12,7 +12,7 @@ from PyQt5.QtGui import QFontDatabase
 from PyQt5.QtWidgets import QApplication
 
 # Color palette
-COLOR_PRIMARY = "#6F4E37"  # coffee brown
+COLOR_PRIMARY = "#6E260E"  # primary brown
 COLOR_ALLOWED = "#27AE60"  # green
 COLOR_BLOCKED = "#E74C3C"  # red
 COLOR_NEUTRAL = "#BDC3C7"  # gray
@@ -98,9 +98,6 @@ QPushButton {{
     font-size: 13px;
     font-weight: 500;
 }}
-QPushButton:hover {{
-    background: #5B3E2D;
-}}
 QPushButton:disabled {{
     background: #D1D5DB;
     color: #9CA3AF;
@@ -116,9 +113,6 @@ QPushButton {{
     padding: 8px 16px;
     font-size: 13px;
 }}
-QPushButton:hover {{
-    background: #F3F4F6;
-}}
 """
 
 small_button_style = f"""
@@ -129,9 +123,6 @@ QPushButton {{
     border-radius: 8px;
     padding: 4px 10px;
     font-size: 12px;
-}}
-QPushButton:hover {{
-    background: #5B3E2D;
 }}
 """
 
