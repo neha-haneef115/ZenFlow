@@ -1140,3 +1140,48 @@ AttributeError: 'MainWindow' object has no attribute '_transition_from_splash'
 2025-12-11 17:01:31,401 - asyncio - DEBUG - Using proactor: IocpProactor
 2025-12-11 17:01:31,913 - websockets.server - INFO - server listening on 127.0.0.1:8765
 2025-12-11 17:01:34,905 - __main__ - INFO - Main window displayed successfully
+2025-12-11 17:04:10,229 - __main__ - WARNING - Icon not found at: assets\icons\zenflow.ico
+2025-12-11 17:04:10,231 - utils.config - INFO - Configuration loaded from C:\Users\ShabbirSon\.zenflow\config.json
+2025-12-11 17:04:10,232 - __main__ - INFO - Configuration loaded successfully
+2025-12-11 17:04:10,766 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-12-11 17:04:11,203 - websockets.server - INFO - server listening on 127.0.0.1:8765
+2025-12-11 17:04:14,177 - __main__ - INFO - Main window displayed successfully
+2025-12-11 17:04:16,048 - websockets.server - INFO - server closing
+2025-12-11 17:04:19,941 - __main__ - WARNING - Icon not found at: assets\icons\zenflow.ico
+2025-12-11 17:04:19,943 - utils.config - INFO - Configuration loaded from C:\Users\ShabbirSon\.zenflow\config.json
+2025-12-11 17:04:19,944 - __main__ - INFO - Configuration loaded successfully
+2025-12-11 17:04:20,329 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-12-11 17:04:20,705 - websockets.server - INFO - server listening on 127.0.0.1:8765
+2025-12-11 17:04:23,683 - __main__ - INFO - Main window displayed successfully
+2025-12-11 17:04:59,982 - __main__ - WARNING - Icon not found at: assets\icons\zenflow.ico
+2025-12-11 17:04:59,986 - utils.config - INFO - Configuration loaded from C:\Users\ShabbirSon\.zenflow\config.json
+2025-12-11 17:04:59,987 - __main__ - INFO - Configuration loaded successfully
+2025-12-11 17:05:00,508 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-12-11 17:05:01,048 - websockets.server - INFO - server listening on 127.0.0.1:8765
+2025-12-11 17:05:04,009 - __main__ - INFO - Main window displayed successfully
+2025-12-11 17:05:49,288 - __main__ - WARNING - Icon not found at: assets\icons\zenflow.ico
+2025-12-11 17:05:49,290 - utils.config - INFO - Configuration loaded from C:\Users\ShabbirSon\.zenflow\config.json
+2025-12-11 17:05:49,291 - __main__ - INFO - Configuration loaded successfully
+2025-12-11 17:05:49,736 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-12-11 17:05:50,158 - websockets.server - INFO - server listening on 127.0.0.1:8765
+2025-12-11 17:05:53,126 - __main__ - INFO - Main window displayed successfully
+2025-12-11 17:06:53,095 - __main__ - WARNING - Icon not found at: assets\icons\zenflow.ico
+2025-12-11 17:06:53,097 - utils.config - INFO - Configuration loaded from C:\Users\ShabbirSon\.zenflow\config.json
+2025-12-11 17:06:53,098 - __main__ - INFO - Configuration loaded successfully
+2025-12-11 17:06:53,517 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-12-11 17:06:53,873 - websockets.server - INFO - server listening on 127.0.0.1:8765
+2025-12-11 17:06:56,859 - __main__ - INFO - Main window displayed successfully
+2025-12-11 17:07:05,928 - websockets.server - INFO - server closing
+2025-12-11 17:07:08,501 - __main__ - WARNING - Icon not found at: assets\icons\zenflow.ico
+2025-12-11 17:07:08,503 - utils.config - INFO - Configuration loaded from C:\Users\ShabbirSon\.zenflow\config.json
+2025-12-11 17:07:08,504 - __main__ - INFO - Configuration loaded successfully
+2025-12-11 17:07:08,944 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-12-11 17:07:09,344 - websockets.server - INFO - server listening on 127.0.0.1:8765
+2025-12-11 17:07:12,365 - __main__ - INFO - Main window displayed successfully
+2025-12-11 17:08:52,791 - __main__ - ERROR - Failed to import required modules: No module named 'screens'
+2025-12-11 17:33:46,828 - __main__ - WARNING - Icon not found at: assets\icons\zenflow.ico
+2025-12-11 17:33:46,830 - utils.config - INFO - Configuration loaded from C:\Users\ShabbirSon\.zenflow\config.json
+2025-12-11 17:33:46,831 - __main__ - INFO - Configuration loaded successfully
+2025-12-11 17:33:47,339 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-12-11 17:33:47,712 - websockets.server - INFO - server listening on 127.0.0.1:8765
+2025-12-11 17:33:50,689 - __main__ - INFO - Main window displayed successfully

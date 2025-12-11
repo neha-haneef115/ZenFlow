@@ -85,8 +85,21 @@ class ZenFlowSplashScreen(QSplashScreen):
         version_width = QFontMetrics(version_font).width(version)
         painter.drawText(
             (self.width() - version_width) // 2,
-            self.height() - 30,
+            self.height() - 45,
             version
+        )
+        
+        # Draw created by line
+        created_font = QFont("Arial", 8)
+        painter.setFont(created_font)
+        painter.setPen(QColor(110, 110, 130))
+        
+        created_text = "Created by Neha Haneef"
+        created_width = QFontMetrics(created_font).width(created_text)
+        painter.drawText(
+            (self.width() - created_width) // 2,
+            self.height() - 25,
+            created_text
         )
 
 if __name__ == "__main__":
