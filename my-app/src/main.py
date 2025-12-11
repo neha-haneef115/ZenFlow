@@ -5,6 +5,8 @@ from PyQt5.QtWidgets import QApplication, QMessageBox
 from PyQt5.QtCore import QTimer, Qt
 from PyQt5.QtGui import QIcon
 
+from theme import apply_global_theme
+
 # Set up logging
 logging.basicConfig(
     level=logging.DEBUG,
@@ -29,6 +31,9 @@ def main():
     # Initialize the application
     app = QApplication(sys.argv)
     app.setApplicationName("ZenFlow")
+
+    # Apply global ZenFlow theme (Inter font + base palette)
+    apply_global_theme(app)
     
     # Set application icon (handle missing icon gracefully)
     try:

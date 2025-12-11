@@ -30,6 +30,8 @@ import psutil
 import win32gui
 import win32process
 
+from web_watcher import WebWatcher
+import theme
 
 DATA_FILE = os.path.join(os.path.dirname(__file__), "zenflow_data.json")
 
@@ -86,7 +88,7 @@ class SplashScreen(QWidget):
         logo = QLabel("ZenFlow")
         logo.setAlignment(Qt.AlignCenter)
         logo.setStyleSheet(
-            "font-size: 48px; font-weight: 700; color: #a5b4fc;"
+            f"font-size: 48px; font-weight: 700; color: {theme.COLOR_PRIMARY};"
         )
 
         glow = QFrame()
@@ -126,7 +128,7 @@ class IntentScreen(QWidget):
 
         title = QLabel("What are you working on today")
         title.setStyleSheet(
-            "font-size: 22px; font-weight: 600; color: #0f172a;"
+            f"font-size: 22px; font-weight: 600; color: {theme.COLOR_TEXT_MAIN};"
         )
         subtitle = QLabel(
             "Your choice decides which apps stay allowed and which apps get blocked"
@@ -156,9 +158,12 @@ class IntentScreen(QWidget):
             btn.setChecked(name in self.selected)
             btn.setFixedHeight(72)
             btn.setStyleSheet(
-                "QPushButton {background:#eff6ff;border:1px solid #dbeafe;"
-                "border-radius:12px;font-size:15px;font-weight:500;color:#0f172a;}"
-                "QPushButton:checked {background:#4f46e5;color:white;border-color:#4f46e5;}"
+                (
+                    "QPushButton {background:#eff6ff;border:1px solid #dbeafe;"
+                    f"border-radius:12px;font-size:15px;font-weight:500;color:{theme.COLOR_TEXT_MAIN};"
+                    "}"
+                    f"QPushButton:checked {{background:{theme.COLOR_PRIMARY};color:white;border-color:{theme.COLOR_PRIMARY};}}"
+                )
             )
             btn.clicked.connect(lambda _=False, n=name: self._toggle_category(n))
             self.buttons[name] = btn
@@ -172,7 +177,7 @@ class IntentScreen(QWidget):
         self.continue_btn = QPushButton("Continue")
         self.continue_btn.setFixedHeight(44)
         self.continue_btn.setStyleSheet(
-            "QPushButton {background:#4f46e5;color:white;border:none;border-radius:10px;"
+            f"QPushButton {{background:{theme.COLOR_PRIMARY};color:white;border:none;border-radius:10px;"
             "font-size:15px;font-weight:500;}"
             "QPushButton:disabled {background:#e5e7eb;color:#9ca3af;}"
         )
@@ -249,7 +254,7 @@ class AppSetupScreen(QWidget):
         layout.setSpacing(16)
 
         title = QLabel("Your focus setup")
-        title.setStyleSheet("font-size: 20px;font-weight:600;color:#0f172a;")
+        title.setStyleSheet(f"font-size: 20px;font-weight:600;color:{theme.COLOR_TEXT_MAIN};")
 
         subtitle = QLabel("Choose which apps stay allowed")
         subtitle.setStyleSheet("color:#64748b;font-size:13px;")
@@ -261,7 +266,7 @@ class AppSetupScreen(QWidget):
         scroll_layout.setSpacing(12)
 
         allowed_label = QLabel("Allowed apps")
-        allowed_label.setStyleSheet("font-weight:600;color:#0369a1;")
+        allowed_label.setStyleSheet(f"font-weight:600;color:{theme.COLOR_ALLOWED};")
         scroll_layout.addWidget(allowed_label)
         for app in sorted(self.allowed):
             cb = QCheckBox(app)
@@ -271,7 +276,7 @@ class AppSetupScreen(QWidget):
             scroll_layout.addWidget(cb)
 
         blocked_label = QLabel("Distracting apps")
-        blocked_label.setStyleSheet("font-weight:600;color:#b91c1c;margin-top:12px;")
+        blocked_label.setStyleSheet(f"font-weight:600;color:{theme.COLOR_BLOCKED};margin-top:12px;")
         scroll_layout.addWidget(blocked_label)
         for app in sorted(self.blocked):
             cb = QCheckBox(app)
@@ -286,7 +291,7 @@ class AppSetupScreen(QWidget):
         start_btn = QPushButton("Start Session")
         start_btn.setFixedHeight(44)
         start_btn.setStyleSheet(
-            "QPushButton {background:#16a34a;color:white;border:none;border-radius:10px;"
+            f"QPushButton {{background:{theme.COLOR_PRIMARY};color:white;border:none;border-radius:10px;"
             "font-size:15px;font-weight:500;}"
         )
         start_btn.clicked.connect(self._on_start_session)
@@ -339,12 +344,12 @@ class FocusDashboardScreen(QWidget):
         layout.setSpacing(12)
 
         title = QLabel("Focus Session")
-        title.setStyleSheet("font-size:20px;font-weight:600;color:#0f172a;")
+        title.setStyleSheet(f"font-size:20px;font-weight:600;color:{theme.COLOR_TEXT_MAIN};")
 
         self.timer_label = QLabel("00:00:00")
         self.timer_label.setAlignment(Qt.AlignCenter)
         self.timer_label.setStyleSheet(
-            "font-size:26px;font-weight:600;color:#111827;margin:8px 0;"
+            f"font-size:26px;font-weight:600;color:{theme.COLOR_TEXT_MAIN};margin:8px 0;"
         )
 
         gradient = QFrame()
@@ -368,7 +373,7 @@ class FocusDashboardScreen(QWidget):
             )
             v = QVBoxLayout(f)
             t = QLabel(title_text)
-            t.setStyleSheet("font-weight:600;color:#111827;")
+            t.setStyleSheet(f"font-weight:600;color:{theme.COLOR_TEXT_MAIN};")
             b = QLabel(body_text)
             b.setStyleSheet("color:#6b7280;font-size:12px;")
             v.addWidget(t)
@@ -389,7 +394,7 @@ class FocusDashboardScreen(QWidget):
         bottom = QHBoxLayout()
         end_btn = QPushButton("End Session")
         end_btn.setStyleSheet(
-            "QPushButton {background:#b91c1c;color:white;border:none;border-radius:10px;"
+            f"QPushButton {{background:{theme.COLOR_BLOCKED};color:white;border:none;border-radius:10px;"
             "padding:8px 16px;font-weight:500;}"
         )
         end_btn.clicked.connect(self._end_session)
@@ -433,7 +438,7 @@ class FocusDashboardScreen(QWidget):
         )
         v = QVBoxLayout(f)
         t = QLabel("Focus tip")
-        t.setStyleSheet("font-weight:600;color:#111827;")
+        t.setStyleSheet(f"font-weight:600;color:{theme.COLOR_TEXT_MAIN};")
         b = QLabel(tip)
         b.setStyleSheet("color:#6b7280;font-size:12px;")
         v.addWidget(t)
@@ -486,7 +491,7 @@ class BlockedOverlayScreen(QWidget):
         )
         v = QVBoxLayout(card)
         title = QLabel("This app breaks your focus")
-        title.setStyleSheet("font-size:18px;font-weight:600;color:#111827;")
+        title.setStyleSheet(f"font-size:18px;font-weight:600;color:{theme.COLOR_TEXT_MAIN};")
         subtitle = QLabel(
             "You can return to your work or allow it for this session"
         )
@@ -495,7 +500,7 @@ class BlockedOverlayScreen(QWidget):
         btn_row = QHBoxLayout()
         back_btn = QPushButton("Return to Focus")
         back_btn.setStyleSheet(
-            "QPushButton {background:#4f46e5;color:white;border:none;border-radius:10px;"
+            f"QPushButton {{background:{theme.COLOR_PRIMARY};color:white;border:none;border-radius:10px;"
             "padding:8px 16px;font-weight:500;}"
         )
         allow_btn = QPushButton("Allow for this session")
@@ -530,6 +535,10 @@ class BlockedOverlayScreen(QWidget):
         if hasattr(self.parent, "allow_exe_for_session"):
             self.parent.allow_exe_for_session(self.app_name)
 
+        # And allow as a domain for this session if applicable (web blocking)
+        if hasattr(self.parent, "allow_domain_for_session"):
+            self.parent.allow_domain_for_session(self.app_name)
+
         if hasattr(self.parent, "hide_blocked_overlay"):
             self.parent.hide_blocked_overlay()
 
@@ -548,7 +557,7 @@ class SummaryScreen(QWidget):
         layout.setSpacing(16)
 
         title = QLabel("Session Summary")
-        title.setStyleSheet("font-size:20px;font-weight:600;color:#0f172a;")
+        title.setStyleSheet(f"font-size:20px;font-weight:600;color:{theme.COLOR_TEXT_MAIN};")
 
         active = self.state.get("activeSessionData", {})
         rules = self.state.get("sessionRules", {})
@@ -557,7 +566,7 @@ class SummaryScreen(QWidget):
 
         def line(text):
             l = QLabel(text)
-            l.setStyleSheet("color:#111827;font-size:13px;")
+            l.setStyleSheet(f"color:{theme.COLOR_TEXT_MAIN};font-size:13px;")
             return l
 
         layout.addWidget(title)
@@ -569,13 +578,15 @@ class SummaryScreen(QWidget):
         layout.addWidget(line("Posture reminders: gentle"))
 
         closing = QLabel("You built strong focus today")
-        closing.setStyleSheet("margin-top:12px;font-weight:500;color:#16a34a;")
+        closing.setStyleSheet(
+            f"margin-top:12px;font-weight:500;color:{theme.COLOR_ALLOWED};"
+        )
         layout.addWidget(closing)
 
         close_btn = QPushButton("Close")
         close_btn.setFixedHeight(44)
         close_btn.setStyleSheet(
-            "QPushButton {background:#4f46e5;color:white;border:none;border-radius:10px;"
+            f"QPushButton {{background:{theme.COLOR_PRIMARY};color:white;border:none;border-radius:10px;"
             "font-size:15px;font-weight:500;margin-top:12px;}"
         )
         close_btn.clicked.connect(self._close_summary)
@@ -700,12 +711,30 @@ class SettingsScreen(QWidget):
         )
         clear_btn.clicked.connect(self._clear_history)
 
+        allowed_label = QLabel("Allowed domains for this session")
+        allowed_label.setStyleSheet("font-weight:600;color:#0369a1;margin-top:12px;")
+        allowed_input = QLineEdit()
+        allowed_input.setPlaceholderText("Enter a domain (e.g. google.com)")
+        allowed_input.returnPressed.connect(lambda: self._add_allowed_domain(allowed_input.text()))
+        allowed_input.setStyleSheet("background:white;border:1px solid #e5e7eb;border-radius:8px;padding:8px;")
+
+        blocked_label = QLabel("Blocked domains for this session")
+        blocked_label.setStyleSheet("font-weight:600;color:#b91c1c;margin-top:12px;")
+        blocked_input = QLineEdit()
+        blocked_input.setPlaceholderText("Enter a domain (e.g. facebook.com)")
+        blocked_input.returnPressed.connect(lambda: self._add_blocked_domain(blocked_input.text()))
+        blocked_input.setStyleSheet("background:white;border:1px solid #e5e7eb;border-radius:8px;padding:8px;")
+
         layout.addWidget(title)
         layout.addLayout(dur_row)
         layout.addWidget(posture_cb)
         layout.addWidget(eye_cb)
         layout.addStretch()
         layout.addWidget(clear_btn)
+        layout.addWidget(allowed_label)
+        layout.addWidget(allowed_input)
+        layout.addWidget(blocked_label)
+        layout.addWidget(blocked_input)
 
     def _save_prefs(self):
         self.state["userPreferences"] = self.prefs
@@ -727,6 +756,22 @@ class SettingsScreen(QWidget):
         self.state["sessionHistory"] = []
         save_state(self.state)
 
+    def _add_allowed_domain(self, domain: str):
+        d = domain.lower().strip()
+        if not d:
+            return
+        parent = self.parent
+        if hasattr(parent, "add_allowed_domain"):
+            parent.add_allowed_domain(d)
+
+    def _add_blocked_domain(self, domain: str):
+        d = domain.lower().strip()
+        if not d:
+            return
+        parent = self.parent
+        if hasattr(parent, "add_blocked_domain"):
+            parent.add_blocked_domain(d)
+
 
 class HomeScreen(QWidget):
     def __init__(self, parent=None):
@@ -746,15 +791,14 @@ class HomeScreen(QWidget):
 
         start_btn = QPushButton("Start New Session")
         start_btn.setFixedHeight(44)
-        start_btn.setStyleSheet(
-            "QPushButton {background:#4f46e5;color:white;border:none;border-radius:10px;"
-            "font-size:15px;font-weight:500;}"
-        )
+        theme.style_primary_button(start_btn)
         start_btn.clicked.connect(self._start_session)
 
         history_btn = QPushButton("History")
+        theme.style_secondary_button(history_btn)
         history_btn.clicked.connect(self._open_history)
         settings_btn = QPushButton("Settings")
+        theme.style_secondary_button(settings_btn)
         settings_btn.clicked.connect(self._open_settings)
 
         layout.addWidget(title)
@@ -848,6 +892,9 @@ class MainWindow(QMainWindow):
         layout.setContentsMargins(0, 0, 0, 0)
         layout.addWidget(self.stacked_widget)
 
+        # Apply global base theme to the main window background
+        self.central_widget.setStyleSheet(theme.base_window_stylesheet)
+
         self.state = load_state()
 
         self.splash_screen = SplashScreen(self)
@@ -872,6 +919,18 @@ class MainWindow(QMainWindow):
         self.blocked_exes = {"chrome.exe", "msedge.exe", "firefox.exe"}
         self.allowed_exes_session = set()
 
+        # --- Website blocking session state (per run, not persisted) ---
+        self.blocked_domains = {
+            "instagram.com",
+            "tiktok.com",
+            "youtube.com",
+            "facebook.com",
+            "twitter.com",
+            "discord.com",
+            "reddit.com",
+        }
+        self.allowed_domains_session = set()
+
         # Queue and watcher for desktop foreground windows
         self.desktop_event_queue = Queue()
         self.desktop_watcher = DesktopWatcher(self.desktop_event_queue, poll_interval=0.2)
@@ -883,6 +942,17 @@ class MainWindow(QMainWindow):
         self.desktop_event_timer.start(100)
 
         self.current_blocked_exe = None
+
+        # Queue and watcher for browser tab URLs (WebSocket from extension)
+        self.web_event_queue = Queue()
+        self.web_watcher = WebWatcher(self.web_event_queue)
+        self.web_watcher.start()
+
+        self.web_event_timer = QTimer(self)
+        self.web_event_timer.timeout.connect(self._process_web_events)
+        self.web_event_timer.start(100)
+
+        self.current_blocked_domain = None
 
     def show_intent_screen(self):
         self.state = load_state()
@@ -941,6 +1011,28 @@ class MainWindow(QMainWindow):
         """Mark an exe as allowed for the remainder of this run."""
         self.allowed_exes_session.add(exe_name.lower())
 
+    def allow_domain_for_session(self, domain: str):
+        """Mark a website domain as allowed for the remainder of this run."""
+        self.allowed_domains_session.add(domain.lower())
+
+    def add_allowed_domain(self, domain: str):
+        """Add a domain to the allowed list for this run (and remove from blocked)."""
+        d = domain.lower().strip()
+        if not d:
+            return
+        self.allowed_domains_session.add(d)
+        if d in self.blocked_domains:
+            self.blocked_domains.remove(d)
+
+    def add_blocked_domain(self, domain: str):
+        """Add a domain to the blocked list for this run (and remove from allowed)."""
+        d = domain.lower().strip()
+        if not d:
+            return
+        self.blocked_domains.add(d)
+        if d in self.allowed_domains_session:
+            self.allowed_domains_session.remove(d)
+
     def _process_desktop_events(self):
         """Handle foreground app changes from DesktopWatcher."""
         latest = None
@@ -976,10 +1068,50 @@ class MainWindow(QMainWindow):
                 self.current_blocked_exe = None
                 self.hide_blocked_overlay()
 
+    def _process_web_events(self):
+        """Handle active tab URL changes from WebWatcher (browser extension)."""
+        latest = None
+        while True:
+            try:
+                ev = self.web_event_queue.get_nowait()
+                latest = ev
+            except Empty:
+                break
+
+        if not latest:
+            return
+
+        if latest.get("type") != "web_foreground":
+            return
+
+        url = (latest.get("url", "") or "").lower()
+        title = latest.get("title", "") or ""
+
+        # Decide if this URL is blocked based on blocked_domains and allowed_domains_session
+        blocked_domain = None
+        for domain in self.blocked_domains:
+            if domain in url and domain not in self.allowed_domains_session:
+                blocked_domain = domain
+                break
+
+        if blocked_domain:
+            # Already showing for this domain? do nothing.
+            if self.current_blocked_domain == blocked_domain:
+                return
+            self.current_blocked_domain = blocked_domain
+            # Use overlay with the domain label
+            self.show_blocked_overlay(blocked_domain)
+        else:
+            if self.current_blocked_domain is not None:
+                self.current_blocked_domain = None
+                self.hide_blocked_overlay()
+
     def closeEvent(self, event):
         try:
             if hasattr(self, "desktop_watcher") and self.desktop_watcher:
                 self.desktop_watcher.stop()
+            if hasattr(self, "web_watcher") and self.web_watcher:
+                self.web_watcher.stop()
         except Exception:
             pass
         super().closeEvent(event)

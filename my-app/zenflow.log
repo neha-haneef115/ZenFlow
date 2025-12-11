@@ -110,3 +110,96 @@
 2025-12-11 09:06:41,109 - utils.config - INFO - Configuration loaded from C:\Users\ShabbirSon\.zenflow\config.json
 2025-12-11 09:06:41,110 - __main__ - INFO - Configuration loaded successfully
 2025-12-11 09:06:44,597 - __main__ - INFO - Main window displayed successfully
+2025-12-11 09:35:44,616 - __main__ - WARNING - Icon not found at: assets\icons\zenflow.ico
+2025-12-11 09:35:44,618 - utils.config - INFO - Configuration loaded from C:\Users\ShabbirSon\.zenflow\config.json
+2025-12-11 09:35:44,619 - __main__ - INFO - Configuration loaded successfully
+2025-12-11 09:35:48,163 - __main__ - INFO - Main window displayed successfully
+2025-12-11 10:15:45,865 - __main__ - WARNING - Icon not found at: assets\icons\zenflow.ico
+2025-12-11 10:15:45,867 - utils.config - INFO - Configuration loaded from C:\Users\ShabbirSon\.zenflow\config.json
+2025-12-11 10:15:45,868 - __main__ - INFO - Configuration loaded successfully
+2025-12-11 10:15:49,584 - __main__ - INFO - Main window displayed successfully
+2025-12-11 10:16:48,223 - __main__ - WARNING - Icon not found at: assets\icons\zenflow.ico
+2025-12-11 10:16:48,225 - utils.config - INFO - Configuration loaded from C:\Users\ShabbirSon\.zenflow\config.json
+2025-12-11 10:16:48,228 - __main__ - INFO - Configuration loaded successfully
+2025-12-11 10:16:51,831 - __main__ - INFO - Main window displayed successfully
+2025-12-11 10:23:03,188 - __main__ - WARNING - Icon not found at: assets\icons\zenflow.ico
+2025-12-11 10:23:03,300 - utils.config - INFO - Configuration loaded from C:\Users\ShabbirSon\.zenflow\config.json
+2025-12-11 10:23:03,373 - __main__ - INFO - Configuration loaded successfully
+2025-12-11 10:23:10,821 - __main__ - INFO - Main window displayed successfully
+2025-12-11 10:37:28,500 - __main__ - WARNING - Icon not found at: assets\icons\zenflow.ico
+2025-12-11 10:37:28,506 - utils.config - INFO - Configuration loaded from C:\Users\ShabbirSon\.zenflow\config.json
+2025-12-11 10:37:28,507 - __main__ - INFO - Configuration loaded successfully
+2025-12-11 10:37:29,480 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-12-11 10:37:29,633 - websockets.server - INFO - server listening on 127.0.0.1:8765
+2025-12-11 10:37:32,545 - __main__ - INFO - Main window displayed successfully
+2025-12-11 10:42:16,738 - __main__ - WARNING - Icon not found at: assets\icons\zenflow.ico
+2025-12-11 10:42:16,754 - utils.config - INFO - Configuration loaded from C:\Users\ShabbirSon\.zenflow\config.json
+2025-12-11 10:42:16,755 - __main__ - INFO - Configuration loaded successfully
+2025-12-11 10:42:17,431 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-12-11 10:42:17,503 - websockets.server - INFO - server listening on 127.0.0.1:8765
+2025-12-11 10:42:20,532 - __main__ - INFO - Main window displayed successfully
+2025-12-11 10:44:09,927 - __main__ - WARNING - Icon not found at: assets\icons\zenflow.ico
+2025-12-11 10:44:09,929 - utils.config - INFO - Configuration loaded from C:\Users\ShabbirSon\.zenflow\config.json
+2025-12-11 10:44:09,929 - __main__ - INFO - Configuration loaded successfully
+2025-12-11 10:44:10,379 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-12-11 10:44:10,442 - websockets.server - INFO - server listening on 127.0.0.1:8765
+2025-12-11 10:44:13,435 - __main__ - INFO - Main window displayed successfully
+2025-12-11 10:46:43,577 - __main__ - WARNING - Icon not found at: assets\icons\zenflow.ico
+2025-12-11 10:46:43,579 - utils.config - INFO - Configuration loaded from C:\Users\ShabbirSon\.zenflow\config.json
+2025-12-11 10:46:43,579 - __main__ - INFO - Configuration loaded successfully
+2025-12-11 10:46:44,010 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-12-11 10:46:44,064 - websockets.server - INFO - server listening on 127.0.0.1:8765
+2025-12-11 10:46:47,115 - __main__ - INFO - Main window displayed successfully
+2025-12-11 10:48:33,214 - __main__ - WARNING - Icon not found at: assets\icons\zenflow.ico
+2025-12-11 10:48:33,218 - utils.config - INFO - Configuration loaded from C:\Users\ShabbirSon\.zenflow\config.json
+2025-12-11 10:48:33,218 - __main__ - INFO - Configuration loaded successfully
+2025-12-11 10:48:33,642 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-12-11 10:48:33,698 - websockets.server - INFO - server listening on 127.0.0.1:8765
+2025-12-11 10:48:36,715 - __main__ - INFO - Main window displayed successfully
+2025-12-11 10:51:23,252 - __main__ - WARNING - Icon not found at: assets\icons\zenflow.ico
+2025-12-11 10:51:23,274 - utils.config - INFO - Configuration loaded from C:\Users\ShabbirSon\.zenflow\config.json
+2025-12-11 10:51:23,278 - __main__ - INFO - Configuration loaded successfully
+2025-12-11 10:51:24,089 - __main__ - CRITICAL - Fatal error in main application: name 'theme' is not defined
+Traceback (most recent call last):
+  File "C:\Users\ShabbirSon\OneDrive\Desktop\ZenDesk\my-app\src\main.py", line 66, in main
+    main_window = MainWindow(config)
+  File "C:\Users\ShabbirSon\OneDrive\Desktop\ZenDesk\my-app\src\main_window.py", line 890, in __init__
+    self.central_widget.setStyleSheet(theme.base_window_stylesheet)
+                                      ^^^^^
+NameError: name 'theme' is not defined. Did you mean: 'time'?
+2025-12-11 10:52:39,193 - __main__ - WARNING - Icon not found at: assets\icons\zenflow.ico
+2025-12-11 10:52:39,195 - utils.config - INFO - Configuration loaded from C:\Users\ShabbirSon\.zenflow\config.json
+2025-12-11 10:52:39,196 - __main__ - INFO - Configuration loaded successfully
+2025-12-11 10:52:39,974 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-12-11 10:52:40,047 - websockets.server - INFO - server listening on 127.0.0.1:8765
+2025-12-11 10:52:43,009 - __main__ - INFO - Main window displayed successfully
+2025-12-11 10:53:39,464 - __main__ - WARNING - Icon not found at: assets\icons\zenflow.ico
+2025-12-11 10:53:39,466 - utils.config - INFO - Configuration loaded from C:\Users\ShabbirSon\.zenflow\config.json
+2025-12-11 10:53:39,467 - __main__ - INFO - Configuration loaded successfully
+2025-12-11 10:53:40,284 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-12-11 10:53:40,360 - websockets.server - INFO - server listening on 127.0.0.1:8765
+2025-12-11 10:53:43,355 - __main__ - INFO - Main window displayed successfully
+2025-12-11 10:55:10,302 - __main__ - WARNING - Icon not found at: assets\icons\zenflow.ico
+2025-12-11 10:55:10,304 - utils.config - INFO - Configuration loaded from C:\Users\ShabbirSon\.zenflow\config.json
+2025-12-11 10:55:10,304 - __main__ - INFO - Configuration loaded successfully
+2025-12-11 10:55:11,120 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-12-11 10:55:11,184 - websockets.server - INFO - server listening on 127.0.0.1:8765
+2025-12-11 10:55:14,229 - __main__ - INFO - Main window displayed successfully
+2025-12-11 10:56:27,098 - __main__ - WARNING - Icon not found at: assets\icons\zenflow.ico
+2025-12-11 10:56:27,099 - utils.config - INFO - Configuration loaded from C:\Users\ShabbirSon\.zenflow\config.json
+2025-12-11 10:56:27,100 - __main__ - INFO - Configuration loaded successfully
+2025-12-11 10:56:27,996 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-12-11 10:56:28,053 - websockets.server - INFO - server listening on 127.0.0.1:8765
+2025-12-11 10:56:31,064 - __main__ - INFO - Main window displayed successfully
+2025-12-11 11:04:51,384 - __main__ - WARNING - Icon not found at: assets\icons\zenflow.ico
+2025-12-11 11:04:51,386 - utils.config - INFO - Configuration loaded from C:\Users\ShabbirSon\.zenflow\config.json
+2025-12-11 11:04:51,387 - __main__ - INFO - Configuration loaded successfully
+2025-12-11 11:04:52,095 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-12-11 11:04:52,149 - websockets.server - INFO - server listening on 127.0.0.1:8765
+2025-12-11 11:04:55,184 - __main__ - INFO - Main window displayed successfully
+2025-12-11 11:09:42,866 - __main__ - WARNING - Icon not found at: assets\icons\zenflow.ico
+2025-12-11 11:09:42,868 - utils.config - INFO - Configuration loaded from C:\Users\ShabbirSon\.zenflow\config.json
+2025-12-11 11:09:42,869 - __main__ - INFO - Configuration loaded successfully
+2025-12-11 11:09:43,612 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-12-11 11:09:43,682 - websockets.server - INFO - server listening on 127.0.0.1:8765
+2025-12-11 11:09:46,640 - __main__ - INFO - Main window displayed successfully
