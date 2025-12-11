@@ -1,24 +1,23 @@
-How To Run
+# ZenFlow
+A lightweight focus and productivity assistant that blocks distractions, tracks your work session, and shows smart alerts when you open apps that break your flow.
 
-Install the app:
+## Features
+- Asks your current task when the app starts
+- Auto-categorizes apps into productive, educational, browsers, or distracting apps
+- Blocks or alerts when you open a distracting app
+- Allows manual override to permit any app
+- Simple PyQt5 interface
+- Runs with a single command
 
+## Installation
+Install directly from GitHub:
+
+```bash
 pip install git+https://github.com/neha-haneef115/ZenFlow.git
 
+## Run the App
 
 Start ZenFlow:
 
+```bash
 zenflowapp
-
-
-ZenFlow opens, asks what you are working on, sets allowed apps, blocks distracting ones, and shows alerts when you open something outside your focus zone.
-
-Tech Stack
-
-Python 3
-PyQt5 for the UI
-Setuptools for packaging
-GitHub for hosting
-
-Extra Details
-
-The app uses a category engine that groups apps into productive, educational, browsers, and distracting social media. Users can manually allow or block apps. The alert overlay appears instantly when a blocked app is launched.
