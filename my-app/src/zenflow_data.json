@@ -1,0 +1,67 @@
+{
+  "selectedCategories": [
+    "Designing"
+  ],
+  "sessionRules": {
+    "allowedApps": [
+      "Adobe XD",
+      "Figma",
+      "Google Chrome",
+      "Microsoft Edge",
+      "Mozilla Firefox",
+      "Opera",
+      "Photoshop",
+      "Safari",
+      "Instagram"
+    ],
+    "blockedApps": [
+      "Facebook",
+      "Netflix",
+      "Reddit",
+      "TikTok",
+      "Twitter",
+      "YouTube"
+    ]
+  },
+  "activeSessionData": {
+    "distractionAttempts": 3
+  },
+  "sessionHistory": [
+    {
+      "startTime": "Thu Dec 11 17:34:01 2025",
+      "endedAt": "Thu Dec 11 17:34:12 2025",
+      "elapsedSeconds": 11,
+      "selectedCategories": [
+        "Designing"
+      ],
+      "sessionRules": {
+        "allowedApps": [
+          "Adobe XD",
+          "Figma",
+          "Google Chrome",
+          "Microsoft Edge",
+          "Mozilla Firefox",
+          "Opera",
+          "Photoshop",
+          "Safari",
+          "Instagram"
+        ],
+        "blockedApps": [
+          "Facebook",
+          "Netflix",
+          "Reddit",
+          "TikTok",
+          "Twitter",
+          "YouTube"
+        ]
+      },
+      "distractionAttempts": 0
+    }
+  ],
+  "userPreferences": {
+    "defaultSessionMinutes": 58,
+    "postureTips": true,
+    "eyeStrainReminders": true,
+    "presets": {}
+  }
+}

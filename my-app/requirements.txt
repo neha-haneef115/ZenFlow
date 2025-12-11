@@ -1,0 +1,36 @@
+# Core Dependencies
+PyQt5==5.15.9
+PyQt5-Qt5==5.15.2
+PyQt5-sip==12.12.2
+PyQt5-stubs==5.15.6.0
+PyQt5-Qt5-svg==5.15.2
+PyQt5_svg==5.15.9
+
+# System Integration
+pywin32==311; sys_platform == 'win32'
+psutil==5.9.5; sys_platform == 'win32'
+python-xlib==0.33; sys_platform == 'linux'
+pyobjc-framework-Quartz==9.2; sys_platform == 'darwin'
+pywin32-ctypes==0.2.2; sys_platform == 'win32'
+
+# AI & Data
+google-generativeai==0.3.2
+numpy==1.26.0
+pandas==2.1.0
+
+# Utilities
+python-dateutil==2.8.2
+sqlalchemy==2.0.23
+python-dotenv==1.0.0
+keyboard==0.13.5
+pyautogui==0.9.54
+pillow==10.0.0
+
+# Styling & UI
+qt-material==2.14
+qdarkstyle==3.1.0
+qtmodern==0.3.0
+
+# Testing
+pytest==7.4.0
+pytest-qt==4.2.0

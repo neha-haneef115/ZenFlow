@@ -1,0 +1,67 @@
+{
+  "app": {
+    "version": "1.0.0",
+    "first_run": true
+  },
+  "focus": {
+    "session_duration": 25,
+    "short_break": 5,
+    "long_break": 15,
+    "long_break_interval": 4,
+    "auto_start_breaks": true,
+    "auto_start_pomodoros": false,
+    "ticking_sound": true,
+    "ticking_volume": 0.5,
+    "notification_sound": true,
+    "notification_volume": 0.7
+  },
+  "health": {
+    "enabled": true,
+    "eye_strain_interval": 20,
+    "posture_reminder_interval": 30,
+    "hydration_reminder_interval": 60,
+    "break_reminder_interval": 25,
+    "mute_reminders": false,
+    "reminder_volume": 0.7
+  },
+  "app_blocking": {
+    "enabled": true,
+    "allowed_apps": ["code.exe", "chrome.exe"],
+    "blocked_apps": ["discord.exe", "steam.exe"],
+    "block_during_focus": true,
+    "block_during_breaks": false
+  },
+  "appearance": {
+    "theme": "dark",
+    "accent_color": "#0078d7",
+    "window_opacity": 0.95,
+    "always_on_top": true,
+    "minimize_to_tray": true,
+    "close_to_tray": true
+  },
+  "notifications": {
+    "enabled": true,
+    "show_desktop_notifications": true,
+    "show_in_app_notifications": true,
+    "notification_duration": 5,
+    "notification_position": "bottom_right"
+  },
+  "stats": {
+    "track_productivity": true,
+    "track_health": true,
+    "save_reports": true,
+    "reports_location": "logs"
+  },
+  "hotkeys": {
+    "start_pause": "Ctrl+Alt+P",
+    "skip_break": "Ctrl+Alt+N",
+    "toggle_app_blocking": "Ctrl+Alt+B",
+    "show_hide_app": "Ctrl+Alt+F"
+  },
+  "startup": {
+    "launch_on_startup": true,
+    "start_minimized": false,
+    "start_focus_session": false,
+    "show_daily_tip": true
+  }
+}
