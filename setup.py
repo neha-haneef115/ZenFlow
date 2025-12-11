@@ -3,10 +3,14 @@ from setuptools import setup, find_packages
 setup(
     name="zenflowapp",
     version="0.1.0",
-    # Install the "src" package (which contains main.py, theme.py, etc.)
-    # so that imports like "src.main" work in the console script.
+
     packages=find_packages(),
-    install_requires=["PyQt5>=5.15.0"],
+    install_requires=[
+        "PyQt5>=5.15.0",
+        # System integration deps (mainly needed on Windows)
+        "psutil>=5.9.5; sys_platform == 'win32'",
+        "pywin32>=311; sys_platform == 'win32'",
+    ],
     entry_points={
         "console_scripts": [
             "zenflowapp = src.main:main",

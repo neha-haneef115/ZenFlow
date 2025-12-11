@@ -1174,3 +1174,9 @@ AttributeError: 'MainWindow' object has no attribute '_transition_from_splash'
 2025-12-11 22:30:39,590 - websockets.server - INFO - server listening on 127.0.0.1:8765
 2025-12-11 22:30:42,540 - src.main - INFO - Main window displayed successfully
 2025-12-11 22:31:10,548 - websockets.server - INFO - server closing
+2025-12-11 23:04:18,704 - src.main - WARNING - Icon not found at: assets\icons\zenflow.ico
+2025-12-11 23:04:18,707 - src.utils.config - INFO - Configuration loaded from C:\Users\ShabbirSon\.zenflow\config.json
+2025-12-11 23:04:18,708 - src.main - INFO - Configuration loaded successfully
+2025-12-11 23:04:19,607 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-12-11 23:04:20,100 - websockets.server - INFO - server listening on 127.0.0.1:8765
+2025-12-11 23:04:23,037 - src.main - INFO - Main window displayed successfully
