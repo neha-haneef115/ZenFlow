@@ -8,7 +8,7 @@ setup(
     install_requires=["PyQt5>=5.15.0"],
     entry_points={
         "console_scripts": [
-            "zenflowapp = main:main",
+            "zenflowapp = src.main:main",
         ],
     },
     include_package_data=True,
