@@ -7,10 +7,11 @@ setup(
     package_dir={"": "src"},
     install_requires=["PyQt5>=5.15.0"],
     entry_points={
-        "console_scripts": [
-            "zenflowapp = src.main:main",
-        ],
-    },
+    "console_scripts": [
+        "zenflowapp = src.main:main",
+    ],
+},
+
     include_package_data=True,
     author="Neha Haneef",
     description="ZenFlow - Focus & Productivity App",
