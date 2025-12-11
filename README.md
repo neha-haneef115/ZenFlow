@@ -24,9 +24,9 @@ pip install git+https://github.com/neha-haneef115/ZenFlow.git
 Run the App
 Start ZenFlow with:
 
-bash
-Copy code
+
 zenflowapp
+
 Built With
 Python 3.8+
 
